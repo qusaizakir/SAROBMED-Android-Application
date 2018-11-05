@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SAROBMED</string>
+    <string name="prompt_email">Email</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="login">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="login_title">SAROBMED</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="synced">Synced Reports</string>
+    <string name="unsynced">Unsynced Reports</string>
+    <string name="sarobmed_full_title">Search and Rescue Observatory for the Mediterranean</string>
+    <string name="unsaved_reports">Unsaved Reports</string>
+    <string name="incomplete_reports">Incomplete Reports</string>
+    <string name="sample_report_title">Proactiva: Rescue of 57 people in the Western Mediterranean</string>
+    <string name="sample_report_location">Western Mediterranean</string>
+    <string name="sample_report_date">12/10/2018</string>
+</resources>

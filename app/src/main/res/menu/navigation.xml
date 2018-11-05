@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_synced"
+        android:icon="@drawable/ic_baseline_sync_24px"
+        android:title="@string/synced" />
+
+    <item
+        android:id="@+id/navigation_unsynced"
+        android:icon="@drawable/ic_baseline_sync_disabled_24px"
+        android:title="@string/unsynced" />
+
+    <item
+        android:id="@+id/navigation_incomplete"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/incomplete_reports"/>
+
+</menu>

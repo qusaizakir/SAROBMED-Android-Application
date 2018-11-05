@@ -1,0 +1,31 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LoginTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="RCReportTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="RCReportData" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="RCReportLocation" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+</resources>
