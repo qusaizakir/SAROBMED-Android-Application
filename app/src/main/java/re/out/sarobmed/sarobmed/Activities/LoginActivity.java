@@ -15,13 +15,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import androidx.appcompat.app.AppCompatActivity;
 import re.out.sarobmed.sarobmed.R;
 
 public class LoginActivity extends AppCompatActivity {
 
     private UserLoginTask mAuthTask = null;
-    private AutoCompleteTextView mEmailView;
+    private TextInputEditText mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;

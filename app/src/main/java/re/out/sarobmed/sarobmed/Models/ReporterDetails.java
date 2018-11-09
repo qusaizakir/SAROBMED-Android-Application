@@ -1,28 +1,29 @@
 package re.out.sarobmed.sarobmed.Models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-@Entity
 public class ReporterDetails {
 
-    @PrimaryKey(autoGenerate = true)
+    private int UID;
     private String reporter;
     private String organisation;
-    private boolean complete;
+    private boolean reporter_complete;
 
     public ReporterDetails() {
-        this.reporter = "";
-        this.organisation = "";
-        this.complete = false;
     }
 
-    public boolean isComplete() {
-        return complete;
+    public int getUID() {
+        return UID;
     }
 
-    public void setComplete(boolean complete) {
-        this.complete = complete;
+    public void setUID(int UID) {
+        this.UID = UID;
+    }
+
+    public boolean isReporter_complete() {
+        return reporter_complete;
+    }
+
+    public void setReporter_complete(boolean reporter_complete) {
+        this.reporter_complete = reporter_complete;
     }
 
     public String getReporter() {

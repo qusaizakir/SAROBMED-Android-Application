@@ -1,20 +1,25 @@
 package re.out.sarobmed.sarobmed.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import re.out.sarobmed.sarobmed.Models.Report;
+import re.out.sarobmed.sarobmed.Models.ReportMinimal;
 import re.out.sarobmed.sarobmed.R;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder> {
 
-    private List<Report> reportList;
+    private List<ReportMinimal> reportMinimalList;
+    private Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
@@ -30,8 +35,9 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
     }
 
 
-    public ReportAdapter(List<Report> reportList) {
-        this.reportList = reportList;
+    public ReportAdapter(List<ReportMinimal> reportMinimalList, Context context) {
+        this.reportMinimalList = reportMinimalList;
+        this.context = context;
     }
 
     @NonNull
@@ -46,21 +52,34 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Report report = reportList.get(position);
+        final ReportMinimal report = reportMinimalList.get(position);
 
-        holder.title.setText(report.getReporterDetails().getOrganisation());
-        holder.location.setText(report.getReporterDetails().getReporter());
-        holder.date.setText(report.getReporterDetails().getReporter());
+        holder.title.setText(report.getShortTitle());
+        holder.location.setText(report.getLocationDescription().get(0));
+
+        Date dateOfMission = report.getDateOfMission();
+        SimpleDateFormat spf= new SimpleDateFormat("dd/MMM/yyyy");
+        spf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String date = spf.format(dateOfMission);
+        holder.date.setText(date);
     }
 
     @Override
     public long getItemId(int position) {
-        return reportList.get(position).getUID();
+        return reportMinimalList.get(position).getUID();
     }
 
     @Override
     public int getItemCount() {
-        return reportList.size();
+        return reportMinimalList.size();
+    }
+
+    public void swap(List<ReportMinimal> newData){
+        if(newData != null){
+            reportMinimalList.clear();
+            reportMinimalList.addAll(newData);
+            notifyDataSetChanged();
+        }
     }
 }
 
