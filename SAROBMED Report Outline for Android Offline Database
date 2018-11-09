@@ -1,0 +1,64 @@
+SAROBMED Report Outline for Android Offline Database
+Key
+S – Simple String text
+N – Number only
+MOS – Fixed menu with other text single choice
+MOM – Fixed menu with other text multiple choice
+MI – Unfixed input allows multiple 
+D - Date
+T – Time (in 24h, UTC)
+L – Location (use phone GPS)
+
+
+Reporter Details
+1.	Reporter (S)
+2.	SAR Organisation (MOS)
+
+Incident Details
+1.	Short title (S)
+2.	Date of mission (D)
+3.	Time of first information received (T)
+4.	Starting time of first sighting (T)
+5.	Ending time of monitoring mission (T)
+6.	Mission Description (S)
+7.	SAR Asset (MOS)
+8.	Migrant (Subtitle)
+a.	Number boats (N)
+b.	Type of boats (S)
+c.	Condition boats (S)
+d.	Identifiers of migrant boats(S)
+e.	Number of people on board per boat (N)
+9.	Sea and weather conditions (S)
+10.	Other vessels in the vicinity (S)
+11.	Source of first information (MOS)
+12.	Media of communication (MOM)
+13.	Means of detection of boats (MOM)	
+14.	Coordination (Subtitle)
+a.	On-Scene (S)
+b.	Overall (S)
+c.	Orders given to SAR vessel (S)
+15.	Documentation / Supporting evidence available (MOM)
+
+Location
+1.	Position of vessel in distress at the time of mission (Subtitle)
+a.	Latitude (L)
+b.	Longitude (L)
+2.	Location Description (MOM)
+3.	Approximate distance from coast line (N)
+4.	Assumed point of departure of migrant boats (S)
+
+Actors Involved
+1.	By Hull number (N) & Flag (S) [MI]
+2.	By Asset / Institution type  + Addition information for some choices (S) (MOM)
+3.	Potential human rights violations (MOM)
+4.	Direct Interference with rescue (MOM) 
+5.	Action against survivors (MOM)
+6.	Post mission action against SAR NGO (MOM)
+
+Fatalities
+1.	Total number of confirmed dead (N)
+2.	Estimated number of dead /missing (N)
+3.	Fatalities prior to SAR (N)
+4.	Fatalities during SAR (N)
+5.	Fatalities post SAR (N)
+ 
