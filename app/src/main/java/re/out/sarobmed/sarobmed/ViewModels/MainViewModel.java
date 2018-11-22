@@ -23,4 +23,14 @@ public class MainViewModel extends AndroidViewModel {
     public LiveData<List<ReportMinimal>> getAllIncompleteReportMinimal(){
         return reportRepository.getAllIncompleteReportMinimal();
     }
+
+    //Get synced ReportsMinimal
+    public LiveData<List<ReportMinimal>> getAllSyncedReportMinimal(){
+        return reportRepository.getAllSyncedReportMinimal();
+    }
+
+    //Get unsynced ReportsMinimal
+    public LiveData<List<ReportMinimal>> getAllUnsyncedReportMinimal(){
+        return reportRepository.getAllUnsyncedReportMinimal();
+    }
 }

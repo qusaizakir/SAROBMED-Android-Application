@@ -46,4 +46,14 @@ public interface ReportDao {
             " FROM Report WHERE finished = 0 ORDER BY UID DESC")
     LiveData<List<ReportMinimal>> getAllIncompleteReportMinimal();
 
+    //Get list of all Reports (as ReportMinimal) which have been synced and finished, order by newest
+    @Query("SELECT UID, shortTitle, locationDescription, dateOfMission" +
+            " FROM Report WHERE synced = 1 AND finished = 1 ORDER BY UID DESC")
+    LiveData<List<ReportMinimal>> getAllSyncedReportMinimal();
+
+    //Get list of all Reports (as ReportMinimal) which have been finished but not synced, order by newest
+    @Query("SELECT UID, shortTitle, locationDescription, dateOfMission" +
+            " FROM Report WHERE synced = 0 AND finished = 1 ORDER BY UID DESC")
+    LiveData<List<ReportMinimal>> getAllUnsyncedReportMinimal();
+
 }

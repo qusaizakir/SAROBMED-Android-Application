@@ -28,6 +28,14 @@ public class ReportRepository {
         return reportDao.getAllIncompleteReportMinimal();
     }
 
+    public LiveData<List<ReportMinimal>> getAllSyncedReportMinimal(){
+        return reportDao.getAllSyncedReportMinimal();
+    }
+
+    public LiveData<List<ReportMinimal>> getAllUnsyncedReportMinimal(){
+        return reportDao.getAllUnsyncedReportMinimal();
+    }
+
     //IncidentDetails
     //LocationDetails
     //ActorsDetails

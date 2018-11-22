@@ -73,38 +73,50 @@ public abstract class AppDatabase extends RoomDatabase {
             Random r = new Random();
 
             Report report = new Report();
-            report.setShortTitle("Proactiva: Rescue of 57 people in the Western Mediterranean");
+            report.setShortTitle("Proactiva: Rescue of 57 people in the Western Mediterranean 1111111");
             report.setLocationDescription(loc);
+            report.setSynced(true);
+            report.setFinished(true);
             report.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report1 = new Report();
-            report1.setShortTitle("SOS Mediterranee: Severe threats from Libyan Coast Guard");
+            report1.setShortTitle("SOS Mediterranee: Severe threats from Libyan Coast Guard 22222222");
             report1.setLocationDescription(loc);
+            report1.setSynced(true);
+            report1.setFinished(true);
             report1.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report2 = new Report();
-            report2.setShortTitle("Refugee Rescue: Denied permission to assist a deflating migrant vessel");
+            report2.setShortTitle("Refugee Rescue: Denied permission to assist a deflating migrant vessel 33333333");
             report2.setLocationDescription(loc);
+            report2.setSynced(true);
+            report2.setFinished(true);
             report2.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report3 = new Report();
-            report3.setShortTitle("Arrest of rescue workers in Greece");
+            report3.setShortTitle("Arrest of rescue workers in Greece 44444444");
             report3.setLocationDescription(loc);
+            report3.setFinished(false);
             report3.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report4 = new Report();
-            report4.setShortTitle("SMH: 53 migrants landed in Chios");
+            report4.setShortTitle("SMH: 53 migrants landed in Chios 55555555");
             report4.setLocationDescription(loc);
+            report4.setFinished(false);
             report4.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report5 = new Report();
-            report5.setShortTitle("Refugee Rescue: Denied permission to launch for rescue");
+            report5.setShortTitle("Refugee Rescue: Denied permission to launch for rescue 6666666");
             report5.setLocationDescription(loc);
+            report5.setFinished(true);
+            report5.setSynced(false);
             report5.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report6 = new Report();
-            report6.setShortTitle("MSF: Aquarius rescued a wooden boat with 25 people on board");
+            report6.setShortTitle("MSF: Aquarius rescued a wooden boat with 25 people on board 777777");
             report6.setLocationDescription(loc);
+            report6.setFinished(true);
+            report6.setSynced(false);
             report6.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             reportDao.insertReport(report);
