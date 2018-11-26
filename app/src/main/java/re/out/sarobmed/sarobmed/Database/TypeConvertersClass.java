@@ -8,17 +8,45 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import androidx.room.TypeConverter;
+import re.out.sarobmed.sarobmed.HelperModels.AssetActor;
+import re.out.sarobmed.sarobmed.HelperModels.ShipActor;
 
 public class TypeConvertersClass {
 
     @TypeConverter
-    public static ArrayList<String> fromString(String value) {
+    public static ArrayList<String> fromStringArray(String value) {
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
         return new Gson().fromJson(value, listType);
     }
 
     @TypeConverter
-    public static String fromArrayList(ArrayList<String> list) {
+    public static String fromStringArrayList(ArrayList<String> list) {
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
+
+    @TypeConverter
+    public static ArrayList<ShipActor> fromShipActorString(String value) {
+        Type listType = new TypeToken<ArrayList<ShipActor>>() {}.getType();
+        return new Gson().fromJson(value, listType);
+    }
+
+    @TypeConverter
+    public static String fromShipActorArrayList(ArrayList<ShipActor> list) {
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
+
+    @TypeConverter
+    public static ArrayList<AssetActor> fromAssetActorString(String value) {
+        Type listType = new TypeToken<ArrayList<AssetActor>>() {}.getType();
+        return new Gson().fromJson(value, listType);
+    }
+
+    @TypeConverter
+    public static String fromAssetActorArrayList(ArrayList<AssetActor> list) {
         Gson gson = new Gson();
         String json = gson.toJson(list);
         return json;

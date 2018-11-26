@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LocationDetails {
 
-    private int UID;
+    private long UID;
     private Double posOfVesselLong;
     private Double posOfVesselLat;
     private ArrayList<String> locationDescription;
@@ -15,11 +15,11 @@ public class LocationDetails {
     public LocationDetails() {
     }
 
-    public int getUID() {
+    public long getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(long UID) {
         this.UID = UID;
     }
 

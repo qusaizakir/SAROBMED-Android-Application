@@ -6,6 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+import re.out.sarobmed.sarobmed.Models.ActorDetails;
+import re.out.sarobmed.sarobmed.Models.FatalitiesDetails;
 import re.out.sarobmed.sarobmed.Models.IncidentDetails;
 import re.out.sarobmed.sarobmed.Models.LocationDetails;
 import re.out.sarobmed.sarobmed.Models.Report;
@@ -19,6 +22,16 @@ public interface ReportDao {
 
     @Insert(onConflict = REPLACE)
     void insertReport(Report report);
+
+    @Update
+    void updateReport(Report report);
+
+    //For each part of the report, get each part separately
+
+    //Get only ReporterDetails from the report, for a specific report.
+    @Query("SELECT UID, reporter, organisation, reporter_complete " +
+            "FROM Report WHERE UID = :ID")
+    LiveData<ReporterDetails> getReporterDetailsByID(int ID);
 
     //Get only IncidentDetails from the report, for a specific report.
     @Query("SELECT UID, shortTitle, dateOfMission, timeOfFirstInfoGet, startTimeOfFirstSighting," +
@@ -36,10 +49,17 @@ public interface ReportDao {
             " FROM Report WHERE UID = :ID")
     LiveData<LocationDetails> getLocationDetailsByID(int ID);
 
-    //Get only ReporterDetails from the report, for a specific report.
-    @Query("SELECT UID, reporter, organisation, reporter_complete " +
-            "FROM Report WHERE UID = :ID")
-    LiveData<ReporterDetails> getReporterDetailsByID(int ID);
+    //Get only ActorDetails from the report, for a specific report.
+    @Query("SELECT UID, shipActors, assetActors, intimidation, interference," +
+            " actionAgainstSurvivors, actionAgainstNGO, actor_complete FROM Report WHERE UID = :ID")
+    LiveData<ActorDetails> getActorDetailsByID(int ID);
+
+    //Get only FatalitiesDetails from the report, for a specific report.
+    @Query("SELECT UID, totConfirmDead, totEstimateDeadMissing, deadPrior, deadDuring, deadAfter," +
+            " fatalities_complete FROM Report WHERE UID = :ID")
+    LiveData<FatalitiesDetails> getFatalitiesDetailsByID(int ID);
+
+    //For the main page, get status of reports (Synced, Unsynced or incomplete)
 
     //Get list of all Reports (as ReportMinimal) where they have not been finished or synced, order by newest
     @Query("SELECT UID, shortTitle, locationDescription, dateOfMission" +

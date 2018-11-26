@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class IncidentDetails {
 
-    private int UID;
+    private long UID;
     private String shortTitle;
     private Date dateOfMission;
     private Date timeOfFirstInfoGet;
@@ -33,11 +33,11 @@ public class IncidentDetails {
         incident_complete = false;
     }
 
-    public int getUID() {
+    public long getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(long UID) {
         this.UID = UID;
     }
 

@@ -1,0 +1,16 @@
+<resources>
+    <string-array name="organisation">
+        <item>Jugend Rettet</item>
+        <item>Mission Lifeline</item>
+        <item>Moonbird</item>
+        <item>MSF OCB</item>
+        <item>MSF OCA</item>
+        <item>Proactiva Open Arms</item>
+        <item>Proemaid</item>
+        <item>Sea Eye</item>
+        <item>Sea Watch</item>
+        <item>SMH</item>
+        <item>SOS Mediterranee</item>
+        <item>Refugee Rescue</item>
+    </string-array>
+</resources>

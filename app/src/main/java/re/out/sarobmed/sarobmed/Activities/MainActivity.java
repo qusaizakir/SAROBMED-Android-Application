@@ -1,7 +1,10 @@
 package re.out.sarobmed.sarobmed.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,7 +17,7 @@ import re.out.sarobmed.sarobmed.Fragments.SyncedReportsFragment;
 import re.out.sarobmed.sarobmed.Fragments.UnsyncedReportsFragment;
 import re.out.sarobmed.sarobmed.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     //Variable for fragment management
     final FragmentManager fm = getSupportFragmentManager();
@@ -48,13 +51,15 @@ public class MainActivity extends AppCompatActivity {
         appBarLayout = findViewById(R.id.main_appbarlayout);
         toolbar = findViewById(R.id.main_toolbar);
         fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(this);
     }
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null){
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
-            getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+            getSupportActionBar().setTitle(getResources().getString(R.string.synced));
         }
     }
 
@@ -67,14 +72,23 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_synced:
                         fm.beginTransaction().replace(R.id.main_container, syncedReportsFragment).commit();
+                        if(getSupportActionBar() != null){
+                            getSupportActionBar().setTitle(getResources().getString(R.string.synced));
+                        }
                         return true;
 
                     case R.id.navigation_unsynced:
                         fm.beginTransaction().replace(R.id.main_container, unsyncedReportsFragment).commit();
+                        if(getSupportActionBar() != null){
+                            getSupportActionBar().setTitle(getResources().getString(R.string.unsynced));
+                        }
                         return true;
 
                     case R.id.navigation_incomplete:
                         fm.beginTransaction().replace(R.id.main_container, incompleteReportsFragment).commit();
+                        if(getSupportActionBar() != null){
+                            getSupportActionBar().setTitle(getResources().getString(R.string.incomplete_reports));
+                        }
                         return true;
                 }
                 return false;
@@ -85,4 +99,14 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch(v.getId()){
+            case R.id.fab:
+                Intent i = new Intent(MainActivity.this, AddFormActivity.class);
+                startActivity(i);
+                break;
+        }
+    }
 }

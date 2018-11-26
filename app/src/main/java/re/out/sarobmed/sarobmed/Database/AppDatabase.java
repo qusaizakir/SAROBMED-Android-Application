@@ -20,7 +20,7 @@ import re.out.sarobmed.sarobmed.Models.LocationDetails;
 import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.Models.ReporterDetails;
 
-@Database(entities = {Report.class}, version = 2)
+@Database(entities = {Report.class}, version = 5)
 @TypeConverters({TypeConvertersClass.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -73,6 +73,7 @@ public abstract class AppDatabase extends RoomDatabase {
             Random r = new Random();
 
             Report report = new Report();
+            report.setUID(0L);
             report.setShortTitle("Proactiva: Rescue of 57 people in the Western Mediterranean 1111111");
             report.setLocationDescription(loc);
             report.setSynced(true);
@@ -80,6 +81,7 @@ public abstract class AppDatabase extends RoomDatabase {
             report.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report1 = new Report();
+            report1.setUID(1L);
             report1.setShortTitle("SOS Mediterranee: Severe threats from Libyan Coast Guard 22222222");
             report1.setLocationDescription(loc);
             report1.setSynced(true);
@@ -87,6 +89,7 @@ public abstract class AppDatabase extends RoomDatabase {
             report1.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report2 = new Report();
+            report2.setUID(2L);
             report2.setShortTitle("Refugee Rescue: Denied permission to assist a deflating migrant vessel 33333333");
             report2.setLocationDescription(loc);
             report2.setSynced(true);
@@ -94,18 +97,21 @@ public abstract class AppDatabase extends RoomDatabase {
             report2.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report3 = new Report();
+            report3.setUID(3L);
             report3.setShortTitle("Arrest of rescue workers in Greece 44444444");
             report3.setLocationDescription(loc);
             report3.setFinished(false);
             report3.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report4 = new Report();
+            report4.setUID(4L);
             report4.setShortTitle("SMH: 53 migrants landed in Chios 55555555");
             report4.setLocationDescription(loc);
             report4.setFinished(false);
             report4.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report5 = new Report();
+            report5.setUID(5L);
             report5.setShortTitle("Refugee Rescue: Denied permission to launch for rescue 6666666");
             report5.setLocationDescription(loc);
             report5.setFinished(true);
@@ -113,6 +119,7 @@ public abstract class AppDatabase extends RoomDatabase {
             report5.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report6 = new Report();
+            report6.setUID(6L);
             report6.setShortTitle("MSF: Aquarius rescued a wooden boat with 25 people on board 777777");
             report6.setLocationDescription(loc);
             report6.setFinished(true);

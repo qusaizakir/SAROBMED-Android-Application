@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Fragments.FormReporterDetailsFragment">
+
+    <EditText
+        android:id="@+id/edit_reporter"
+        style="@style/AddFormEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_reporter_hint"
+        android:inputType="textPersonName"
+        android:importantForAutofill="no" />
+
+    <AutoCompleteTextView
+        android:id="@+id/edit_organisation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionThreshold="0"
+        android:hint="@string/edit_organisation_hint"
+        style="@style/AddFormEditText"/>
+</LinearLayout>

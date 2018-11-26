@@ -54,14 +54,21 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ReportMinimal report = reportMinimalList.get(position);
 
-        holder.title.setText(report.getShortTitle());
-        holder.location.setText(report.getLocationDescription().get(0));
+        if(report.getShortTitle() != null){
+            holder.title.setText(report.getShortTitle());
+        }
+        if(report.getLocationDescription() != null){
+            holder.location.setText(report.getLocationDescription().get(0));
+        }
 
-        Date dateOfMission = report.getDateOfMission();
-        SimpleDateFormat spf= new SimpleDateFormat("dd/MMM/yyyy");
-        spf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        String date = spf.format(dateOfMission);
-        holder.date.setText(date);
+        if(report.getDateOfMission() != null){
+            Date dateOfMission = report.getDateOfMission();
+            SimpleDateFormat spf= new SimpleDateFormat("dd/MMM/yyyy");
+            spf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            String date = spf.format(dateOfMission);
+            holder.date.setText(date);
+        }
+
     }
 
     @Override

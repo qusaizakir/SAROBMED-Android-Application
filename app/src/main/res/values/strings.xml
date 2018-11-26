@@ -17,4 +17,13 @@
     <string name="sample_report_title">Proactiva: Rescue of 57 people in the Western Mediterranean</string>
     <string name="sample_report_location">Western Mediterranean</string>
     <string name="sample_report_date">12/10/2018</string>
+    <string name="reporter_details">Reporter Details</string>
+    <string name="location_details">Location Details</string>
+    <string name="edit_reporter_hint">Reporter</string>
+    <string name="edit_organisation_hint">SAR Organisation</string>
+    <string name="form_picker_title">Create SAR Form</string>
+    <string name="reporter_details_title">Reporter Details</string>
+    <string name="incident_details">Incident Details</string>
+    <string name="actor_details">Actor Details</string>
+    <string name="fatalities_details">Fatalities Details</string>
 </resources>

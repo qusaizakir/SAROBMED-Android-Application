@@ -3,21 +3,24 @@ package re.out.sarobmed.sarobmed.Models;
 import java.util.ArrayList;
 import java.util.Date;
 
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import re.out.sarobmed.sarobmed.HelperModels.AssetActor;
+import re.out.sarobmed.sarobmed.HelperModels.ShipActor;
 
 /*
 * This is the main Report Table in the SQL ROOM Database
 * It includes all parts of the report
 * Each 'part' is split into different models that are queried individually
-* And displayed on the Report Details page*/
+* And displayed on the Report Details page
+* This ensures that only what is needed is taken to help with performance
+*/
 
 @Entity
 public class Report {
 
-    @PrimaryKey(autoGenerate = true)
-    private int UID;
+    @PrimaryKey
+    private long UID;
     private boolean finished;
     private boolean synced;
 
@@ -25,14 +28,6 @@ public class Report {
     private String reporter;
     private String organisation;
     private boolean reporter_complete;
-
-    //LocationDetails
-    private Double posOfVesselLong;
-    private Double posOfVesselLat;
-    private ArrayList<String> locationDescription;
-    private int approxDistanceFromCoastline;
-    private String assumedPointOfDeparture;
-    private boolean location_complete;
 
     //IncidentDetails
     private String shortTitle;
@@ -58,20 +53,49 @@ public class Report {
     private ArrayList<String> supportingEvidence;
     private boolean incident_complete;
 
+    //LocationDetails
+    private Double posOfVesselLong;
+    private Double posOfVesselLat;
+    private ArrayList<String> locationDescription;
+    private int approxDistanceFromCoastline;
+    private String assumedPointOfDeparture;
+    private boolean location_complete;
+
+    //Actor Details
+    private ArrayList<ShipActor> shipActors;
+    private ArrayList<AssetActor> assetActors;
+    private ArrayList<String> intimidation;
+    private ArrayList<String> interference;
+    private ArrayList<String> actionAgainstSurvivors;
+    private ArrayList<String> actionAgainstNGO;
+    private boolean actor_complete;
+
+    //Fatalities Details
+    private int totConfirmDead;
+    private int totEstimateDeadMissing;
+    private int deadPrior;
+    private int deadDuring;
+    private int deadAfter;
+    private boolean fatalities_complete;
+
 
     public Report() {
         this.incident_complete = false;
         this.location_complete = false;
         this.reporter_complete = false;
+        this.actor_complete = false;
+        this.fatalities_complete = false;
         this.finished = false;
         this.synced = false;
     }
 
-    public int getUID() {
+
+
+    public long getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(long UID) {
         this.UID = UID;
     }
 
@@ -337,5 +361,109 @@ public class Report {
 
     public void setIncident_complete(boolean incident_complete) {
         this.incident_complete = incident_complete;
+    }
+
+    public ArrayList<ShipActor> getShipActors() {
+        return shipActors;
+    }
+
+    public void setShipActors(ArrayList<ShipActor> shipActors) {
+        this.shipActors = shipActors;
+    }
+
+    public ArrayList<AssetActor> getAssetActors() {
+        return assetActors;
+    }
+
+    public void setAssetActors(ArrayList<AssetActor> assetActors) {
+        this.assetActors = assetActors;
+    }
+
+    public ArrayList<String> getIntimidation() {
+        return intimidation;
+    }
+
+    public void setIntimidation(ArrayList<String> intimidation) {
+        this.intimidation = intimidation;
+    }
+
+    public ArrayList<String> getInterference() {
+        return interference;
+    }
+
+    public void setInterference(ArrayList<String> interference) {
+        this.interference = interference;
+    }
+
+    public ArrayList<String> getActionAgainstSurvivors() {
+        return actionAgainstSurvivors;
+    }
+
+    public void setActionAgainstSurvivors(ArrayList<String> actionAgainstSurvivors) {
+        this.actionAgainstSurvivors = actionAgainstSurvivors;
+    }
+
+    public ArrayList<String> getActionAgainstNGO() {
+        return actionAgainstNGO;
+    }
+
+    public void setActionAgainstNGO(ArrayList<String> actionAgainstNGO) {
+        this.actionAgainstNGO = actionAgainstNGO;
+    }
+
+    public boolean isActor_complete() {
+        return actor_complete;
+    }
+
+    public void setActor_complete(boolean actor_complete) {
+        this.actor_complete = actor_complete;
+    }
+
+    public int getTotConfirmDead() {
+        return totConfirmDead;
+    }
+
+    public void setTotConfirmDead(int totConfirmDead) {
+        this.totConfirmDead = totConfirmDead;
+    }
+
+    public int getTotEstimateDeadMissing() {
+        return totEstimateDeadMissing;
+    }
+
+    public void setTotEstimateDeadMissing(int totEstimateDeadMissing) {
+        this.totEstimateDeadMissing = totEstimateDeadMissing;
+    }
+
+    public int getDeadPrior() {
+        return deadPrior;
+    }
+
+    public void setDeadPrior(int deadPrior) {
+        this.deadPrior = deadPrior;
+    }
+
+    public int getDeadDuring() {
+        return deadDuring;
+    }
+
+    public void setDeadDuring(int deadDuring) {
+        this.deadDuring = deadDuring;
+    }
+
+    public int getDeadAfter() {
+        return deadAfter;
+    }
+
+    public void setDeadAfter(int deadAfter) {
+        this.deadAfter = deadAfter;
+    }
+
+    public boolean isFatalities_complete() {
+        return fatalities_complete;
+    }
+
+    public void setFatalities_complete(boolean fatalities_complete) {
+        this.fatalities_complete = fatalities_complete;
     }
 }

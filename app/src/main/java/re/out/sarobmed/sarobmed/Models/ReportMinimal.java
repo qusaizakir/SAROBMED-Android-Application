@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class ReportMinimal {
 
-    private int UID;
+    private long UID;
     private String shortTitle;
     private ArrayList<String> locationDescription;
     private Date dateOfMission;
@@ -13,11 +13,11 @@ public class ReportMinimal {
     public ReportMinimal() {
     }
 
-    public int getUID() {
+    public long getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(long UID) {
         this.UID = UID;
     }
 

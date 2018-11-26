@@ -2,7 +2,7 @@ package re.out.sarobmed.sarobmed.Models;
 
 public class ReporterDetails {
 
-    private int UID;
+    private long UID;
     private String reporter;
     private String organisation;
     private boolean reporter_complete;
@@ -10,11 +10,11 @@ public class ReporterDetails {
     public ReporterDetails() {
     }
 
-    public int getUID() {
+    public long getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(long UID) {
         this.UID = UID;
     }
 
