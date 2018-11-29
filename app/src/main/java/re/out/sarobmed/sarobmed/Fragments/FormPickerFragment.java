@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import re.out.sarobmed.sarobmed.R;
 
+import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.INCIDENT;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.LOCATION;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.REPORTER;
 
@@ -22,6 +23,7 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
     private FormPickerFragmentListener mListener;
     private CardView reporterDetailsCard;
     private CardView locationDetailsCard;
+    private CardView incidentDetailsCard;
 
     public FormPickerFragment() {
 
@@ -57,9 +59,11 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
     private void initViews(View v) {
         reporterDetailsCard = v.findViewById(R.id.card_reporter_details);
         locationDetailsCard = v.findViewById(R.id.card_location_details);
+        incidentDetailsCard = v.findViewById(R.id.card_incident_details);
 
         reporterDetailsCard.setOnClickListener(this);
         locationDetailsCard.setOnClickListener(this);
+        incidentDetailsCard.setOnClickListener(this);
     }
 
 
@@ -91,6 +95,8 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
             case R.id.card_location_details:
                 mListener.openFragment(LOCATION);
                 break;
+            case R.id.card_incident_details:
+                mListener.openFragment(INCIDENT);
         }
     }
 

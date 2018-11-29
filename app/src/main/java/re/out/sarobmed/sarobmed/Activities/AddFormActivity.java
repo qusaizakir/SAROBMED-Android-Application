@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
+import re.out.sarobmed.sarobmed.Fragments.FormIncidentDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormPickerFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormReporterDetailsFragment;
 import re.out.sarobmed.sarobmed.Models.Report;
@@ -16,18 +17,21 @@ import re.out.sarobmed.sarobmed.R;
 import re.out.sarobmed.sarobmed.ViewModels.AddFormViewModel;
 
 public class AddFormActivity extends AppCompatActivity implements
-        FormPickerFragment.FormPickerFragmentListener, FormReporterDetailsFragment.FormReporterDetailsListener {
+        FormPickerFragment.FormPickerFragmentListener, FormReporterDetailsFragment.FormReporterDetailsListener,
+        FormIncidentDetailsFragment.FormIncidentDetailsListener {
 
     //Final Static Variables to identify Fragments
     public final static int PICKER = 2;
     public final static int REPORTER = 0;
     public final static int LOCATION = 1;
+    public final static int INCIDENT = 3;
     public Report report = new Report();
 
     //Variable for fragment management
     final FragmentManager fm = getSupportFragmentManager();
     final FormPickerFragment formPickerFragment = new FormPickerFragment();
     final FormReporterDetailsFragment formReporterDetailsFragment = new FormReporterDetailsFragment();
+    final FormIncidentDetailsFragment formIncidentDetailsFragment = new FormIncidentDetailsFragment();
 
     //Variables for views
     AppBarLayout appBarLayout;
@@ -58,9 +62,12 @@ public class AddFormActivity extends AppCompatActivity implements
     @Override
     public void onBackPressed() {
         if(formReporterDetailsFragment.isVisible()){
-            Log.d("SAVETOREPORTCALLED", "true");
             formReporterDetailsFragment.saveToReport();
         }
+        if(formIncidentDetailsFragment.isVisible()){
+            formIncidentDetailsFragment.saveToReport();
+        }
+
         //TODO ADD the rest of fragements here as well
         super.onBackPressed();
     }
@@ -92,6 +99,9 @@ public class AddFormActivity extends AppCompatActivity implements
             case LOCATION:
                 //fm.beginTransaction().replace(R.id.addform_container, formReporterDetailsFragment).commit();
                 break;
+            case INCIDENT:
+                fm.beginTransaction().replace(R.id.addform_container, formIncidentDetailsFragment).addToBackStack(null).commit();
+                break;
         }
 
     }
@@ -110,6 +120,16 @@ public class AddFormActivity extends AppCompatActivity implements
     public void setupFormReporterToolbar() {
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(getString(R.string.reporter_details_title));
+            toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public void setupFormIncidentToolbar() {
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(getString(R.string.incident_details_title));
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

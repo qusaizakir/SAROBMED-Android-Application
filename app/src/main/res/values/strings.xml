@@ -21,9 +21,14 @@
     <string name="location_details">Location Details</string>
     <string name="edit_reporter_hint">Reporter</string>
     <string name="edit_organisation_hint">SAR Organisation</string>
-    <string name="form_picker_title">Create SAR Form</string>
+    <string name="form_picker_title">Create Search And Rescue Form</string>
     <string name="reporter_details_title">Reporter Details</string>
     <string name="incident_details">Incident Details</string>
     <string name="actor_details">Actor Details</string>
     <string name="fatalities_details">Fatalities Details</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="incident_details_title">Incident Details</string>
+    <string name="edit_shorttitle_hint">Short Title</string>
 </resources>
