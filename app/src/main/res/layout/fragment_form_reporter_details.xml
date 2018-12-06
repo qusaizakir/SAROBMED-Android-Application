@@ -7,20 +7,34 @@
     android:padding="16dp"
     tools:context=".Fragments.FormReporterDetailsFragment">
 
-    <EditText
-        android:id="@+id/edit_reporter"
-        style="@style/AddFormEditText"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_reporter_hint"
-        android:inputType="textPersonName"
-        android:importantForAutofill="no" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_reporter"
+            style="@style/AddFormEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/edit_reporter_hint"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <AutoCompleteTextView
-        android:id="@+id/edit_organisation"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:completionThreshold="0"
-        android:hint="@string/edit_organisation_hint"
-        style="@style/AddFormEditText"/>
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_organisation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:completionThreshold="0"
+            android:inputType="text"
+            android:hint="@string/edit_organisation_hint"
+            style="@style/AddFormEditText"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 </LinearLayout>

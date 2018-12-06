@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sarAsset">
+        <item>Aquarius</item>
+        <item>Astral</item>
+        <item>Iuventa</item>
+        <item>Lifeline</item>
+        <item>Mo Chara</item>
+        <item>Moonbird</item>
+        <item>Open Arms</item>
+        <item>Sea Eye</item>
+        <item>Sea Watch 3</item>
+        <item>Seefuchs</item>
+    </string-array>
+
+</resources>

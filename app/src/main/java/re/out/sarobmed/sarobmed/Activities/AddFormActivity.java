@@ -83,9 +83,7 @@ public class AddFormActivity extends AppCompatActivity implements
     }
 
     public void updateReport(){
-        Log.d("SAVETOREPORTUID", report.getUID() + "");
-        Log.d("SAVETOREPORTreporter", report.getReporter());
-        Log.d("SAVETOREPORTorgan", report.getOrganisation());
+
         model.updateReport(report);
     }
 

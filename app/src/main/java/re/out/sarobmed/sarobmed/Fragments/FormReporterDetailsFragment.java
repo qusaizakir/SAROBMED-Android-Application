@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.HelperModels.SetAutoComplete;
 import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.R;
 
@@ -22,8 +22,8 @@ public class FormReporterDetailsFragment extends Fragment {
     private Context context;
     private FormReporterDetailsListener mListener;
 
-    private EditText editReporter;
-    private AutoCompleteTextView editOrganisation;
+    private EditText reporter;
+    private AutoCompleteTextView organisation;
 
     public FormReporterDetailsFragment() {
     }
@@ -41,7 +41,7 @@ public class FormReporterDetailsFragment extends Fragment {
         setHasOptionsMenu(true);
         mListener.setupFormReporterToolbar();
         initViews(v);
-        setupEditTexts();
+        setupAutoComplete();
 
         return v;
     }
@@ -62,25 +62,20 @@ public class FormReporterDetailsFragment extends Fragment {
     public void saveToReport() {
         Report report = ((AddFormActivity)context).report;
 
-        report.setReporter(editReporter.getText().toString());
-        report.setOrganisation(editOrganisation.getText().toString());
+        report.setReporter(reporter.getText().toString());
+        report.setOrganisation(organisation.getText().toString());
 
         ((AddFormActivity)context).updateReport();
     }
 
     private void initViews(View v) {
-        editReporter = v.findViewById(R.id.edit_reporter);
-        editOrganisation = v.findViewById(R.id.edit_organisation);
+        reporter = v.findViewById(R.id.edit_reporter);
+        organisation = v.findViewById(R.id.edit_organisation);
 
     }
 
-    private void setupEditTexts() {
-
-        String[] organisationArray = getResources().getStringArray(R.array.organisation);
-        ArrayAdapter<String> editOrganisationAdapter = new ArrayAdapter<>(context,
-                android.R.layout.simple_dropdown_item_1line, organisationArray);
-        editOrganisation.setAdapter(editOrganisationAdapter);
-
+    private void setupAutoComplete() {
+        SetAutoComplete organisationAuto = new SetAutoComplete(organisation, R.array.organisation, context);
     }
 
     @Override

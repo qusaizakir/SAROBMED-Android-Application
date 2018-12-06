@@ -31,4 +31,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="incident_details_title">Incident Details</string>
     <string name="edit_shorttitle_hint">Short Title</string>
+    <string name="edit_dateofmission_hint">Date of Mission</string>
+    <string name="edit_timeoffirstinfoget_hint">Time of first information received</string>
+    <string name="edit_startTimeOfFirstSighting_hint">Starting time of first sighting</string>
+    <string name="edit_endTimeOfMission_hint">End time of monitoring mission</string>
+    <string name="Edit_missionDesc_hint">Mission Description</string>
+    <string name="edit_sarAsset_hint">SAR Asset</string>
+    <string name="edit_numberOfMigrantBoats_hint">Number of migrant boats</string>
+    <string name="edit_migrantTypeOfBoats_hint">Type of migrant boats</string>
+    <string name="edit_migrantBoatIdentifiers_hint">Identifiers of the migrant boats</string>
+    <string name="edit_migrantNoOfPeoplePerBoat_hint">Number of people per boat</string>
+    <string name="edit_seaAndWeatherConditions_hint">Sea and weather conditions</string>
+    <string name="edit_otherVesselsInVicinity_hint">Other vessels in the vicinity</string>
 </resources>
