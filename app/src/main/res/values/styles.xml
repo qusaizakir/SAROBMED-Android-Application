@@ -4,6 +4,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionMenuTextColor">@color/colorWhite</item>
+        <item name="android:actionMenuTextColor">@color/colorWhite</item>
     </style>
 
     <style name="LoginTitle" parent="TextAppearance.AppCompat.Title">
@@ -42,7 +44,19 @@
     </style>
 
     <style name="AddFormEditText" parent="Base.V7.Widget.AppCompat.EditText">
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+        <item name="hintTextAppearance">@color/colorAccent</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
 
+    <style name="AddFormLayout" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="hintTextAppearance">@color/colorAccent</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
 
 </resources>

@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import re.out.sarobmed.sarobmed.Fragments.FormIncidentDetailsFragment;
+import re.out.sarobmed.sarobmed.Fragments.FormLocationDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormPickerFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormReporterDetailsFragment;
 import re.out.sarobmed.sarobmed.Models.Report;
@@ -18,7 +19,7 @@ import re.out.sarobmed.sarobmed.ViewModels.AddFormViewModel;
 
 public class AddFormActivity extends AppCompatActivity implements
         FormPickerFragment.FormPickerFragmentListener, FormReporterDetailsFragment.FormReporterDetailsListener,
-        FormIncidentDetailsFragment.FormIncidentDetailsListener {
+        FormIncidentDetailsFragment.FormIncidentDetailsListener, FormLocationDetailsFragment.FormLocationDetailsListener {
 
     //Final Static Variables to identify Fragments
     public final static int PICKER = 2;
@@ -32,6 +33,7 @@ public class AddFormActivity extends AppCompatActivity implements
     final FormPickerFragment formPickerFragment = new FormPickerFragment();
     final FormReporterDetailsFragment formReporterDetailsFragment = new FormReporterDetailsFragment();
     final FormIncidentDetailsFragment formIncidentDetailsFragment = new FormIncidentDetailsFragment();
+    final FormLocationDetailsFragment formLocationDetailsFragment = new FormLocationDetailsFragment();
 
     //Variables for views
     AppBarLayout appBarLayout;
@@ -67,6 +69,9 @@ public class AddFormActivity extends AppCompatActivity implements
         if(formIncidentDetailsFragment.isVisible()){
             formIncidentDetailsFragment.saveToReport();
         }
+        if(formLocationDetailsFragment.isVisible()){
+            formLocationDetailsFragment.saveToReport();
+        }
 
         //TODO ADD the rest of fragements here as well
         super.onBackPressed();
@@ -95,7 +100,7 @@ public class AddFormActivity extends AppCompatActivity implements
                 fm.beginTransaction().replace(R.id.addform_container, formReporterDetailsFragment).addToBackStack(null).commit();
                 break;
             case LOCATION:
-                //fm.beginTransaction().replace(R.id.addform_container, formReporterDetailsFragment).commit();
+                fm.beginTransaction().replace(R.id.addform_container, formLocationDetailsFragment).addToBackStack(null).commit();
                 break;
             case INCIDENT:
                 fm.beginTransaction().replace(R.id.addform_container, formIncidentDetailsFragment).addToBackStack(null).commit();
@@ -128,6 +133,16 @@ public class AddFormActivity extends AppCompatActivity implements
     public void setupFormIncidentToolbar() {
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(getString(R.string.incident_details_title));
+            toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public void setupFormLocationToolbar() {
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(getString(R.string.location_details_title));
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

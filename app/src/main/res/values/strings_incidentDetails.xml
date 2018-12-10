@@ -13,4 +13,52 @@
         <item>Seefuchs</item>
     </string-array>
 
+    <string-array name="sourceFirstInfo">
+        <item>Own detection</item>
+        <item>MRCC Rome</item>
+        <item>MRCC Malta</item>
+        <item>MRCC Madrid</item>
+        <item>EUNAVFORMED vessel  </item>
+        <item>EUNAVFORMED aircraft</item>
+        <item>FRONTEX vessel </item>
+        <item>FRONTEX aircraft</item>
+        <item>NATO vessel</item>
+        <item>NATO aircraft</item>
+        <item>Greek Coast guard </item>
+        <item>Italian Coast Guard</item>
+        <item>Libyan Coast Guard</item>
+        <item>Moroccan Coast Guard</item>
+        <item>Spanish Coast Guard</item>
+        <item>Tunisian Coast Guard</item>
+        <item>Turkish Coast Guard</item>
+        <item>Moonbird</item>
+    </string-array>
+
+    <string-array name="mediaOfComm">
+        <item>Phone Call</item>
+        <item>Inmarsat-C Message</item>
+        <item>Email</item>
+        <item>VHF</item>
+    </string-array>
+
+    <string-array name="meansOfBoatDetection">
+        <item>Radar</item>
+        <item>Sighting</item>
+        <item>Satellite phone</item>
+    </string-array>
+
+    <string-array name="supportingEvidence">
+        <item>Go-pro camera video footage</item>
+        <item>CCTV on board</item>
+        <item>Audio (radio / phone) communication</item>
+        <item>Pictures of the radar</item>
+        <item>Pictures of the transas</item>
+        <item>AIS and position data</item>
+        <item>Photos of the operation</item>
+        <item>Bridge recording</item>
+        <item>INMARSAT message(s)</item>
+        <item>NAVTex Distress Alert(s)</item>
+        <item>Email communication</item>
+        <item>Medical / death certificates</item>
+    </string-array>
 </resources>

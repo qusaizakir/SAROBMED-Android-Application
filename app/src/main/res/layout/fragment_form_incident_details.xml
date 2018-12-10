@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     tools:context=".Fragments.FormIncidentDetailsFragment">
 
@@ -18,7 +19,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_shortTitle"
                     style="@style/AddFormEditText"
@@ -31,7 +33,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_dateOfMission"
                     style="@style/AddFormEditText"
@@ -47,7 +50,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_timeOfFirstInfoGet"
                     style="@style/AddFormEditText"
@@ -63,7 +67,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_startTimeOfFirstSighting"
                     style="@style/AddFormEditText"
@@ -79,7 +84,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_endTimeOfMission"
                     style="@style/AddFormEditText"
@@ -95,7 +101,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_missionDesc"
                     style="@style/AddFormEditText"
@@ -108,7 +115,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
 
                 <AutoCompleteTextView
                     android:id="@+id/edit_SARAsset"
@@ -123,7 +131,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_migrantNoOfBoats"
                     style="@style/AddFormEditText"
@@ -136,7 +145,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_migrantTypeOfBoats"
                     style="@style/AddFormEditText"
@@ -149,7 +159,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_migrantConditionOfBoats"
                     style="@style/AddFormEditText"
@@ -162,7 +173,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_migrantBoatIdentifiers"
                     style="@style/AddFormEditText"
@@ -175,7 +187,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_migrantNoOfPeoplePerBoat"
                     style="@style/AddFormEditText"
@@ -188,7 +201,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_seaAndWeatherConditions"
                     style="@style/AddFormEditText"
@@ -201,7 +215,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
                 <EditText
                     android:id="@+id/edit_otherVesselsInVicinity"
                     style="@style/AddFormEditText"
@@ -209,6 +224,114 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_otherVesselsInVicinity_hint"
                     android:inputType="text"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edit_sourceOfFirstInfo"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/edit_sourceOfFirstInfo_hint"
+                    android:completionThreshold="0"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_mediaOfCommunication"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_mediaOfCommunication_hint"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:longClickable="false"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_meansOfBoatDetection"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_meansOfBoatDetection_hint"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:longClickable="false"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_coordOnScene"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_coordOnScene_hint"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_coordOverall"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_coordOverall_hint"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_coordOrderToSARVessel"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_coordOrderToSARVessel_hint"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_supportingEvidence"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_supportingEvidence_hint"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:longClickable="false"
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
 

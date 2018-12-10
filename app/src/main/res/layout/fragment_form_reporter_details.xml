@@ -9,7 +9,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/AddFormLayout">
         <EditText
             android:id="@+id/edit_reporter"
             style="@style/AddFormEditText"
@@ -22,7 +23,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/AddFormLayout">
 
         <AutoCompleteTextView
             android:id="@+id/edit_organisation"

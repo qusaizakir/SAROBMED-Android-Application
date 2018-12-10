@@ -3,6 +3,7 @@ package re.out.sarobmed.sarobmed.Fragments;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.Set;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.HelperModels.DialogCheckbox;
 import re.out.sarobmed.sarobmed.HelperModels.SetAutoComplete;
 import re.out.sarobmed.sarobmed.HelperModels.SetDate;
 import re.out.sarobmed.sarobmed.HelperModels.SetTime;
@@ -51,7 +53,18 @@ public class FormIncidentDetailsFragment extends Fragment {
     private EditText migrantNoOfPeoplePerBoat;
     private EditText seaAndWeatherConditions;
     private EditText otherVesselsInVicinity;
+    private AutoCompleteTextView sourceOFFirstInfo;
 
+    private EditText mediaOfCommunication;
+    private DialogCheckbox mediaOfCommunicationDialog;
+    private EditText meansOfBoatDetection;
+    private DialogCheckbox meansOfBoatDetectionDialog;
+    private EditText supportingEvidence;
+    private DialogCheckbox supportingEvidenceDialog;
+
+    private EditText coordOnScene;
+    private EditText coordOverall;
+    private EditText coordOrdersToSARVessel;
 
     public FormIncidentDetailsFragment() {
 
@@ -71,6 +84,7 @@ public class FormIncidentDetailsFragment extends Fragment {
         initViews(v);
         setUpTimeAndDate();
         setUpAutoComplete();
+        setUpDialogs();
         return v;
     }
 
@@ -83,6 +97,18 @@ public class FormIncidentDetailsFragment extends Fragment {
 
     private void setUpAutoComplete() {
         SetAutoComplete SARAssetAuto = new SetAutoComplete(SARAsset, R.array.sarAsset, this.context);
+        SetAutoComplete SourceOFFirstInfo = new SetAutoComplete(sourceOFFirstInfo, R.array.sourceFirstInfo, this.context);
+    }
+
+    private void setUpDialogs() {
+        String mediaOfCommTitle = getResources().getString(R.string.edit_mediaOfCommunication_hint);
+        mediaOfCommunicationDialog = new DialogCheckbox(mediaOfCommunication,mediaOfCommTitle, R.array.mediaOfComm, this.context);
+
+        String meansOfBoatTitle = context.getResources().getString(R.string.edit_meansOfBoatDetection_hint);
+        meansOfBoatDetectionDialog = new DialogCheckbox(meansOfBoatDetection, meansOfBoatTitle, R.array.meansOfBoatDetection, this.context);
+
+        String supportTitle = context.getResources().getString(R.string.edit_supportingEvidence_hint);
+        supportingEvidenceDialog = new DialogCheckbox(supportingEvidence, supportTitle, R.array.supportingEvidence, this.context);
     }
 
     @Override
@@ -111,10 +137,35 @@ public class FormIncidentDetailsFragment extends Fragment {
         migrantNoOfPeoplePerBoat = v.findViewById(R.id.edit_migrantNoOfPeoplePerBoat);
         seaAndWeatherConditions = v.findViewById(R.id.edit_seaAndWeatherConditions);
         otherVesselsInVicinity = v.findViewById(R.id.edit_otherVesselsInVicinity);
+        sourceOFFirstInfo = v.findViewById(R.id.edit_sourceOfFirstInfo);
+        mediaOfCommunication = v.findViewById(R.id.edit_mediaOfCommunication);
+        meansOfBoatDetection = v.findViewById(R.id.edit_meansOfBoatDetection);
+        coordOnScene = v.findViewById(R.id.edit_coordOnScene);
+        coordOverall = v.findViewById(R.id.edit_coordOverall);
+        coordOrdersToSARVessel = v.findViewById(R.id.edit_coordOrderToSARVessel);
+        supportingEvidence = v.findViewById(R.id.edit_supportingEvidence);
+
     }
 
     public void saveToReport() {
         Report report = ((AddFormActivity)context).report;
+
+        //Parse Int
+        int migNo=0;
+        try{
+            migNo = Integer.parseInt(migrantNoOfBoats.getText().toString());
+        }catch (NumberFormatException e){
+            //Not a number
+        }
+        report.setMigrantNoOfBoats(migNo);
+        //Parse Int
+        int migPer=0;
+        try{
+            migPer = Integer.parseInt(migrantNoOfPeoplePerBoat.getText().toString());
+        }catch (NumberFormatException e){
+            //Not a number
+        }
+        report.setMigrantNoOfPeoplePerBoat(migPer);
 
         report.setShortTitle(shortTitle.getText().toString());
         report.setDateOfMission(dateOfMissionDate.getCalendarDate());
@@ -123,13 +174,18 @@ public class FormIncidentDetailsFragment extends Fragment {
         report.setEndTimeOfMission(endTimeOfMissionTime.getCalendarDate());
         report.setMissionDesc(missionDesc.getText().toString());
         report.setSARAsset(SARAsset.getText().toString());
-        report.setMigrantNoOfBoats(Integer.parseInt(migrantNoOfBoats.getText().toString()));
         report.setMigrantTypeOfBoats(migrantTypeOfBoats.getText().toString());
         report.setMigrantConditionOfBoats(migrantConditionOfBoats.getText().toString());
         report.setMigrantBoatIdentifiers(migrantBoatIdentifiers.getText().toString());
-        report.setMigrantNoOfPeoplePerBoat(Integer.parseInt(migrantNoOfPeoplePerBoat.getText().toString()));
         report.setSeaAndWeatherConditions(seaAndWeatherConditions.getText().toString());
         report.setOtherVesselsInVicinity(otherVesselsInVicinity.getText().toString());
+        report.setSourceOfFirstInfo(sourceOFFirstInfo.getText().toString());
+        report.setMediaOfCommunication(mediaOfCommunicationDialog.getResults());
+        report.setMeansOfBoatDetection(meansOfBoatDetectionDialog.getResults());
+        report.setCoordOnScene(coordOnScene.getText().toString());
+        report.setCoordOverall(coordOverall.getText().toString());
+        report.setCoordOrdersToSARVessel(coordOrdersToSARVessel.getText().toString());
+        report.setSupportingEvidence(supportingEvidenceDialog.getResults());
 
         ((AddFormActivity)context).updateReport();
     }

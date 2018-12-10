@@ -43,4 +43,15 @@
     <string name="edit_migrantNoOfPeoplePerBoat_hint">Number of people per boat</string>
     <string name="edit_seaAndWeatherConditions_hint">Sea and weather conditions</string>
     <string name="edit_otherVesselsInVicinity_hint">Other vessels in the vicinity</string>
+    <string name="edit_sourceOfFirstInfo_hint">Source of first information</string>
+    <string name="edit_mediaOfCommunication_hint">Media Of Communication</string>
+    <string name="edit_meansOfBoatDetection_hint">Means of boat detection</string>
+    <string name="edit_coordOnScene_hint">On-Scene coordination</string>
+    <string name="edit_coordOverall_hint">Overall coordination</string>
+    <string name="edit_coordOrderToSARVessel_hint">Orders given to SAR vessel</string>
+    <string name="edit_supportingEvidence_hint">Supporting evidence</string>
+    <string name="location_details_title">Location Details</string>
+    <string name="edit_posOfVesselLong_hint">Position of vessel in distress (Longitude)</string>
+    <string name="edit_posOfVesselLat_hint">Position of vessel in distress (Latitude)</string>
+    <string name="current_location_title">Use Current Location</string>
 </resources>
