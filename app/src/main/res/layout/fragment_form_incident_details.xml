@@ -232,6 +232,7 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AddFormLayout">
 
+
                 <AutoCompleteTextView
                     android:id="@+id/edit_sourceOfFirstInfo"
                     style="@style/AddFormEditText"

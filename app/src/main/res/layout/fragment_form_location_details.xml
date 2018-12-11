@@ -44,6 +44,51 @@
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_locationDescription"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_locationDescription_hint"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:longClickable="false"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_approxDistanceFromCoastline"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_approxDistanceFromCoastline_hint"
+                    android:inputType="number"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AddFormLayout">
+                <EditText
+                    android:id="@+id/edit_assumedPointOfDeparture"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_assumedPointOfDeparture_hint"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
     </ScrollView>

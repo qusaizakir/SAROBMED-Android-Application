@@ -54,4 +54,7 @@
     <string name="edit_posOfVesselLong_hint">Position of vessel in distress (Longitude)</string>
     <string name="edit_posOfVesselLat_hint">Position of vessel in distress (Latitude)</string>
     <string name="current_location_title">Use Current Location</string>
+    <string name="edit_locationDescription_hint">Location description</string>
+    <string name="edit_approxDistanceFromCoastline_hint">Approximate distance from coastline</string>
+    <string name="edit_assumedPointOfDeparture_hint">Assumed point of departure of migrant boats</string>
 </resources>

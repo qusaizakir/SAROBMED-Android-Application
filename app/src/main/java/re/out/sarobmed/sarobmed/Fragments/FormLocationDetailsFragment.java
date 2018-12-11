@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.HelperModels.DialogCheckbox;
 import re.out.sarobmed.sarobmed.HelperModels.GPSHelper;
 import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.R;
@@ -30,6 +31,12 @@ public class FormLocationDetailsFragment extends Fragment {
 
     private EditText posOfVesselLong;
     private EditText posOfVesselLat;
+
+    private EditText locationDescription;
+    private DialogCheckbox locationDescriptionBox;
+
+    private EditText approxDistanceFromCoastline;
+    private EditText assumedPointOfDeparture;
 
     public FormLocationDetailsFragment() {
 
@@ -48,7 +55,6 @@ public class FormLocationDetailsFragment extends Fragment {
         mListener.setupFormLocationToolbar();
         gpsHelper = new GPSHelper(context);
         initViews(v);
-        setUpTimeAndDate();
         setUpAutoComplete();
         setUpDialogs();
         findCurrentLocation();
@@ -69,12 +75,9 @@ public class FormLocationDetailsFragment extends Fragment {
         FormLocationDetailsFragmentPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 
-    private void setUpTimeAndDate() {
-
-    }
-
     private void setUpAutoComplete() {
-
+        String locationTitle = context.getResources().getString(R.string.edit_locationDescription_hint);
+        locationDescriptionBox = new DialogCheckbox(locationDescription, locationTitle, R.array.locationDescription, this.context);
     }
 
     private void setUpDialogs() {
@@ -106,6 +109,9 @@ public class FormLocationDetailsFragment extends Fragment {
     private void initViews(View v) {
         posOfVesselLong = v.findViewById(R.id.edit_posOfVesselLong);
         posOfVesselLat = v.findViewById(R.id.edit_posOfVesselLat);
+        locationDescription = v.findViewById(R.id.edit_locationDescription);
+        approxDistanceFromCoastline = v.findViewById(R.id.edit_approxDistanceFromCoastline);
+        assumedPointOfDeparture = v.findViewById(R.id.edit_assumedPointOfDeparture);
 
     }
 
@@ -126,8 +132,19 @@ public class FormLocationDetailsFragment extends Fragment {
             //Not a number
         }
 
+        //Parse the int
+        int dist = 0;
+        try{
+            dist = Integer.parseInt(approxDistanceFromCoastline.getText().toString());
+        } catch (NumberFormatException e){
+            //Not a number;
+        }
+
         report.setPosOfVesselLong(lng);
         report.setPosOfVesselLat(lat);
+        report.setLocationDescription(locationDescriptionBox.getResults());
+        report.setApproxDistanceFromCoastline(dist);
+        report.setAssumedPointOfDeparture(assumedPointOfDeparture.getText().toString());
 
         ((AddFormActivity)context).updateReport();
     }

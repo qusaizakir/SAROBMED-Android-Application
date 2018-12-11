@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="locationDescription">
+        <item>High seas</item>
+        <item>Territorial waters of Libya</item>
+        <item>Territorial waters of Turkey </item>
+        <item>Territorial waters of Greece</item>
+        <item>Territorial waters of Spain</item>
+        <item>Territorial waters of Morocco</item>
+        <item>Territorial waters of Egypt</item>
+        <item>Territorial waters of Tunisia</item>
+        <item>Territorial waters of Algeria</item>
+    </string-array>
+
+
+</resources>
