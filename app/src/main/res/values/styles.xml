@@ -10,7 +10,7 @@
 
     <style name="LoginTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">32sp</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="RCReportTitle" parent="TextAppearance.AppCompat.Title">
