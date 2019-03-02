@@ -57,4 +57,6 @@
     <string name="edit_locationDescription_hint">Location description</string>
     <string name="edit_approxDistanceFromCoastline_hint">Approximate distance from coastline</string>
     <string name="edit_assumedPointOfDeparture_hint">Assumed point of departure of migrant boats</string>
+    <string name="short_title_not_set">Short title has not been set</string>
+    <string name="location_not_set">Location has not been set</string>
 </resources>

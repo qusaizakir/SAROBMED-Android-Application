@@ -54,11 +54,15 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ReportMinimal report = reportMinimalList.get(position);
 
-        if(report.getShortTitle() != null){
+        if(report.getShortTitle() != null && !report.getShortTitle().isEmpty()){
             holder.title.setText(report.getShortTitle());
+        }else{
+            holder.title.setText(context.getString(R.string.short_title_not_set));
         }
-        if(report.getLocationDescription() != null){
+        if(report.getLocationDescription() != null && report.getLocationDescription().size() > 0){
             holder.location.setText(report.getLocationDescription().get(0));
+        }else{
+            holder.location.setText(context.getString(R.string.location_not_set));
         }
 
         if(report.getDateOfMission() != null){

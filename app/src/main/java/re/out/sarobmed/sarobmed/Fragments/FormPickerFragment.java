@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -24,6 +25,8 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
     private CardView reporterDetailsCard;
     private CardView locationDetailsCard;
     private CardView incidentDetailsCard;
+    private CardView actorDetailsCard;
+    private CardView fatalitiesDetailsCard;
 
     public FormPickerFragment() {
 
@@ -60,10 +63,14 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
         reporterDetailsCard = v.findViewById(R.id.card_reporter_details);
         locationDetailsCard = v.findViewById(R.id.card_location_details);
         incidentDetailsCard = v.findViewById(R.id.card_incident_details);
+        actorDetailsCard = v.findViewById(R.id.card_actor_details);
+        fatalitiesDetailsCard = v.findViewById(R.id.card_fatalities_details);
 
         reporterDetailsCard.setOnClickListener(this);
         locationDetailsCard.setOnClickListener(this);
         incidentDetailsCard.setOnClickListener(this);
+        actorDetailsCard.setOnClickListener(this);
+        fatalitiesDetailsCard.setOnClickListener(this);
     }
 
 
@@ -97,6 +104,10 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.card_incident_details:
                 mListener.openFragment(INCIDENT);
+            case R.id.card_actor_details:
+                Toast.makeText(context, "Implementation coming soon", Toast.LENGTH_SHORT).show();
+            case R.id.card_fatalities_details:
+                Toast.makeText(context, "Implementation coming soon", Toast.LENGTH_SHORT).show();
         }
     }
 

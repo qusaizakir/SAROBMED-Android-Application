@@ -74,7 +74,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
             Report report = new Report();
             report.setUID(0L);
-            report.setShortTitle("Proactiva: Rescue of 57 people in the Western Mediterranean 1111111");
+            report.setShortTitle("Proactiva: Rescue of 57 people in the Western Mediterranean Synced");
             report.setLocationDescription(loc);
             report.setSynced(true);
             report.setFinished(true);
@@ -82,7 +82,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
             Report report1 = new Report();
             report1.setUID(1L);
-            report1.setShortTitle("SOS Mediterranee: Severe threats from Libyan Coast Guard 22222222");
+            report1.setShortTitle("SOS Mediterranee: Severe threats from Libyan Coast Guard Synced");
             report1.setLocationDescription(loc);
             report1.setSynced(true);
             report1.setFinished(true);
@@ -90,7 +90,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
             Report report2 = new Report();
             report2.setUID(2L);
-            report2.setShortTitle("Refugee Rescue: Denied permission to assist a deflating migrant vessel 33333333");
+            report2.setShortTitle("Refugee Rescue: Denied permission to assist a deflating migrant vessel Synced");
             report2.setLocationDescription(loc);
             report2.setSynced(true);
             report2.setFinished(true);
@@ -98,21 +98,21 @@ public abstract class AppDatabase extends RoomDatabase {
 
             Report report3 = new Report();
             report3.setUID(3L);
-            report3.setShortTitle("Arrest of rescue workers in Greece 44444444");
+            report3.setShortTitle("Arrest of rescue workers in Greece Incomplete");
             report3.setLocationDescription(loc);
             report3.setFinished(false);
             report3.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report4 = new Report();
             report4.setUID(4L);
-            report4.setShortTitle("SMH: 53 migrants landed in Chios 55555555");
+            report4.setShortTitle("SMH: 53 migrants landed in Chios Incomplete");
             report4.setLocationDescription(loc);
             report4.setFinished(false);
             report4.setDateOfMission(new Date(System.currentTimeMillis() + ((r.nextInt(80 - 1) + 1)* 86400000)));
 
             Report report5 = new Report();
             report5.setUID(5L);
-            report5.setShortTitle("Refugee Rescue: Denied permission to launch for rescue 6666666");
+            report5.setShortTitle("Refugee Rescue: Denied permission to launch for rescue UNSynced");
             report5.setLocationDescription(loc);
             report5.setFinished(true);
             report5.setSynced(false);
@@ -120,7 +120,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
             Report report6 = new Report();
             report6.setUID(6L);
-            report6.setShortTitle("MSF: Aquarius rescued a wooden boat with 25 people on board 777777");
+            report6.setShortTitle("MSF: Aquarius rescued a wooden boat with 25 people on board UNSynced");
             report6.setLocationDescription(loc);
             report6.setFinished(true);
             report6.setSynced(false);
