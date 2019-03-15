@@ -59,4 +59,9 @@
     <string name="edit_assumedPointOfDeparture_hint">Assumed point of departure of migrant boats</string>
     <string name="short_title_not_set">Short title has not been set</string>
     <string name="location_not_set">Location has not been set</string>
+    <string name="edit_shipActors_hint">By Hull Number and Flag</string>
+    <string name="edit_shipActor_dialogTitle">Add Ship Actor By Hull and Flag</string>
+    <string name="edit_dialog_hullNumber_hint">Hull Number</string>
+    <string name="edit_dialog_flag_hint">Flag</string>
+    <string name="edit_dialog_addShipActorButton">Add Ship Actor</string>
 </resources>

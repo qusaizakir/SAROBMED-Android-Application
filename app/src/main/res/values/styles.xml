@@ -49,10 +49,10 @@
         <item name="colorControlNormal">#c5c5c5</item>
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="AddFormLayout" parent="Base.Widget.MaterialComponents.TextInputLayout">
-        <item name="android:background">@color/colorWhite</item>
         <item name="hintTextAppearance">@color/colorAccent</item>
         <item name="colorControlNormal">#c5c5c5</item>
         <item name="colorControlActivated">@color/colorAccent</item>

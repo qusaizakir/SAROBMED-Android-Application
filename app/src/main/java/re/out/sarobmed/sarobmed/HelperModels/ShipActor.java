@@ -1,19 +1,19 @@
 package re.out.sarobmed.sarobmed.HelperModels;
 
 public class ShipActor {
-    private int hullNumber;
+    private String hullNumber;
     private String flag;
 
-    public ShipActor(int hullNumber, String flag) {
+    public ShipActor(String hullNumber, String flag) {
         this.hullNumber = hullNumber;
         this.flag = flag;
     }
 
-    public int getHullNumber() {
+    public String getHullNumber() {
         return hullNumber;
     }
 
-    public void setHullNumber(int hullNumber) {
+    public void setHullNumber(String hullNumber) {
         this.hullNumber = hullNumber;
     }
 

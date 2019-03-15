@@ -88,7 +88,7 @@ public class DialogCheckbox implements View.OnClickListener{
 
     private void changeEditText() {
         StringBuilder sb = new StringBuilder();
-        Log.d("RESULTSSIZE", results.size() + "");
+
         for(String s: results){
             sb.append(s);
             sb.append(" ");

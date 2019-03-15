@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import re.out.sarobmed.sarobmed.R;
 
+import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.ACTOR;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.INCIDENT;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.LOCATION;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.REPORTER;
@@ -104,8 +105,10 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.card_incident_details:
                 mListener.openFragment(INCIDENT);
+                break;
             case R.id.card_actor_details:
-                Toast.makeText(context, "Implementation coming soon", Toast.LENGTH_SHORT).show();
+                mListener.openFragment(ACTOR);
+                break;
             case R.id.card_fatalities_details:
                 Toast.makeText(context, "Implementation coming soon", Toast.LENGTH_SHORT).show();
         }

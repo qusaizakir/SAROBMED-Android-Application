@@ -82,7 +82,7 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:background="@null"/>
+                    android:background="@color/colorWhite"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,7 +103,7 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:background="@null"/>
+                    android:background="@color/colorWhite"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
