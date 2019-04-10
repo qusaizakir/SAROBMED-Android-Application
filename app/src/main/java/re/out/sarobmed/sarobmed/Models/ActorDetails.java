@@ -3,6 +3,7 @@ package re.out.sarobmed.sarobmed.Models;
 import java.util.ArrayList;
 
 import re.out.sarobmed.sarobmed.HelperModels.AssetActor;
+import re.out.sarobmed.sarobmed.HelperModels.InterferenceOptions;
 import re.out.sarobmed.sarobmed.HelperModels.ShipActor;
 
 public class ActorDetails {
@@ -11,7 +12,7 @@ public class ActorDetails {
     private ArrayList<ShipActor> shipActors;
     private ArrayList<AssetActor> assetActors;
     private ArrayList<String> intimidation;
-    private ArrayList<String> interference;
+    private ArrayList<InterferenceOptions> interference;
     private ArrayList<String> actionAgainstSurvivors;
     private ArrayList<String> actionAgainstNGO;
     private boolean actor_complete;
@@ -51,11 +52,11 @@ public class ActorDetails {
         this.intimidation = intimidation;
     }
 
-    public ArrayList<String> getInterference() {
+    public ArrayList<InterferenceOptions> getInterference() {
         return interference;
     }
 
-    public void setInterference(ArrayList<String> interference) {
+    public void setInterference(ArrayList<InterferenceOptions> interference) {
         this.interference = interference;
     }
 

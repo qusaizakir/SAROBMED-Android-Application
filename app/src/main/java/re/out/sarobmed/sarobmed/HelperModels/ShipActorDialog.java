@@ -61,6 +61,7 @@ public class ShipActorDialog implements View.OnClickListener {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                //TODO add shipActor results array to save to database
                 changeEditText();
 
             }
@@ -99,5 +100,9 @@ public class ShipActorDialog implements View.OnClickListener {
                 adapter.notifyItemInserted(position);
                 break;
         }
+    }
+
+    public ArrayList<ShipActor> getResults() {
+        return results;
     }
 }

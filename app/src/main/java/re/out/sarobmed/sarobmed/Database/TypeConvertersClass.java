@@ -9,6 +9,7 @@ import java.util.Date;
 
 import androidx.room.TypeConverter;
 import re.out.sarobmed.sarobmed.HelperModels.AssetActor;
+import re.out.sarobmed.sarobmed.HelperModels.InterferenceOptions;
 import re.out.sarobmed.sarobmed.HelperModels.ShipActor;
 
 public class TypeConvertersClass {
@@ -47,6 +48,19 @@ public class TypeConvertersClass {
 
     @TypeConverter
     public static String fromAssetActorArrayList(ArrayList<AssetActor> list) {
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
+
+    @TypeConverter
+    public static ArrayList<InterferenceOptions> fromInterferenceOptionsString (String value) {
+        Type listType = new TypeToken<ArrayList<AssetActor>>() {}.getType();
+        return new Gson().fromJson(value, listType);
+    }
+
+    @TypeConverter
+    public static String fromInterferenceOptionsArrayList (ArrayList<InterferenceOptions> list) {
         Gson gson = new Gson();
         String json = gson.toJson(list);
         return json;

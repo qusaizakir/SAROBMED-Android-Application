@@ -76,6 +76,9 @@ public class AddFormActivity extends AppCompatActivity implements
         if(formLocationDetailsFragment.isVisible()){
             formLocationDetailsFragment.saveToReport();
         }
+        if(formActorDetailsFragment.isVisible()){
+            formActorDetailsFragment.saveToReport();
+        }
 
         //TODO ADD the rest of fragements here as well
         super.onBackPressed();
@@ -159,7 +162,7 @@ public class AddFormActivity extends AppCompatActivity implements
     @Override
     public void setupFormActorToolbar() {
         if(getSupportActionBar() != null){
-            getSupportActionBar().setTitle(getString(R.string.location_details_title));
+            getSupportActionBar().setTitle(getString(R.string.actor_details));
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="assetActors">
+        <item>MRCC Rome</item>
+        <item>Greek Coast guard</item>
+        <item>Italian Coast Guard</item>
+        <item>Libyan Coast Guard/Navy</item>
+        <item>Moroccan Coast Guard</item>
+        <item>Spanish Coast Guard</item>
+        <item>Tunisian Coast Guard</item>
+        <item>Turkish Coast Guard</item>
+        <item>Moonbird</item>
+    </string-array>
+
+    <string-array name="intimidation">
+        <item>Water hosing</item>
+        <item>Warning shots at air or water</item>
+        <item>Use of rubber bullets</item>
+        <item>Use of teargas</item>
+        <item>Fast approach</item>
+        <item>Verbal threats</item>
+        <item>Throwing objects overboard</item>
+    </string-array>
+
+    <string-array name="actionSurvivors">
+        <item>Pushback</item>
+        <item>Pullback</item>
+        <item>Separation of family members</item>
+        <item>Beatings</item>
+    </string-array>
+
+    <string-array name="actionNGO">
+        <item>Detention of crew</item>
+        <item>Search of rescue boat</item>
+        <item>Seizure of rescue boat</item>
+        <item>Confiscation of belongings</item>
+        <item>Confiscation of rescue boat</item>
+        <item>Criminal investigation</item>
+        <item>Judicial proceedings</item>
+    </string-array>
+
+
+
+</resources>

@@ -27,10 +27,90 @@
                     style="@style/AddFormEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edit_shipActors_hint"
                     android:clickable="true"
                     android:focusable="false"
+                    android:hint="@string/edit_shipActors_hint"
                     android:longClickable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_assetActors"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/byassetActors"
+                    android:longClickable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_intimidation"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/intimidation"
+                    android:longClickable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_interference"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/direct_interference_with_rescue"
+                    android:longClickable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_actionAgainstSurvivors"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/action_against_survivors"
+                    android:longClickable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AddFormLayout">
+
+                <EditText
+                    android:id="@+id/edit_actionAgainstNGO"
+                    style="@style/AddFormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/action_against_ngo_s"
+                    android:longClickable="false"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>

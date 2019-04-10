@@ -6,6 +6,7 @@ import java.util.Date;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import re.out.sarobmed.sarobmed.HelperModels.AssetActor;
+import re.out.sarobmed.sarobmed.HelperModels.InterferenceOptions;
 import re.out.sarobmed.sarobmed.HelperModels.ShipActor;
 
 /*
@@ -65,7 +66,7 @@ public class Report {
     private ArrayList<ShipActor> shipActors;
     private ArrayList<AssetActor> assetActors;
     private ArrayList<String> intimidation;
-    private ArrayList<String> interference;
+    private ArrayList<InterferenceOptions> interference;
     private ArrayList<String> actionAgainstSurvivors;
     private ArrayList<String> actionAgainstNGO;
     private boolean actor_complete;
@@ -387,11 +388,11 @@ public class Report {
         this.intimidation = intimidation;
     }
 
-    public ArrayList<String> getInterference() {
+    public ArrayList<InterferenceOptions> getInterference() {
         return interference;
     }
 
-    public void setInterference(ArrayList<String> interference) {
+    public void setInterference(ArrayList<InterferenceOptions> interference) {
         this.interference = interference;
     }
 

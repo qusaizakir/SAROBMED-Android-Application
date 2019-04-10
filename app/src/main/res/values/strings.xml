@@ -64,4 +64,26 @@
     <string name="edit_dialog_hullNumber_hint">Hull Number</string>
     <string name="edit_dialog_flag_hint">Flag</string>
     <string name="edit_dialog_addShipActorButton">Add Ship Actor</string>
+    <string name="euwarship">EU Member State Warship Flag</string>
+    <string name="euairship">EU Member State Aircraft Flag</string>
+    <string name="euno_vessel">EUNAVFORMED Vessel Flag</string>
+    <string name="frontexVessel">FRONTEX Vessel Flag</string>
+    <string name="frontexAircraft">FRONTEX Aircraft Flag</string>
+    <string name="natoVessel">NATO Vessel Flag</string>
+    <string name="natoAircraft">NATO Aircraft Flag</string>
+    <string name="otherNGO">Other NGO(s)</string>
+    <string name="cargoShipAsset">Cargo Ship(s)</string>
+    <string name="eunoAircraft">EUNAVFORMED Aircraft Flag</string>
+    <string name="byassetActors">By Asset / Institution Type</string>
+    <string name="intimidation">Intimidation</string>
+    <string name="noneuBoarding">Violent Boarding by non-EU Authority</string>
+    <string name="blockEu">Blockade by EU Authority</string>
+    <string name="blockNoneu">Blockade by non-EU Authority</string>
+    <string name="stayawayEu">Order to stay away by EU Authority</string>
+    <string name="stayawayNoneu">Order to stay away by non-EU</string>
+    <string name="standdownEU">Order to stand down by EU</string>
+    <string name="standdownnoneu">Order to stand down by non-EU</string>
+    <string name="direct_interference_with_rescue">Direct interference with rescue</string>
+    <string name="action_against_survivors">Action against survivors</string>
+    <string name="action_against_ngo_s">Post-Mission Action against NGO(s)</string>
 </resources>

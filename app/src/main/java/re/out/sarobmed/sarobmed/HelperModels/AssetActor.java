@@ -9,6 +9,11 @@ public class AssetActor {
         this.addInfo = addInfo;
     }
 
+    public AssetActor(String institution){
+        this.institution = institution;
+        this.addInfo = "";
+    }
+
     public String getInstitution() {
         return institution;
     }

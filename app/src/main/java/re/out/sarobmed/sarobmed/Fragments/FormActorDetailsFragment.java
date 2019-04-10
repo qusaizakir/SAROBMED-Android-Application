@@ -8,7 +8,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.HelperModels.AssetDialogCheckbox;
+import re.out.sarobmed.sarobmed.HelperModels.DialogCheckbox;
+import re.out.sarobmed.sarobmed.HelperModels.InterferenceDialogCheckbox;
 import re.out.sarobmed.sarobmed.HelperModels.ShipActorDialog;
+import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.R;
 
 
@@ -17,8 +22,18 @@ public class FormActorDetailsFragment extends Fragment {
     private Context context;
     private FormActorDetailsListener mListener;
 
-    private ShipActorDialog shipActorDialog;
     private EditText shipActors;
+    private ShipActorDialog shipActorDialog;
+    private EditText assetActors;
+    private AssetDialogCheckbox assetDialogCheckbox;
+    private EditText intimidation;
+    private DialogCheckbox intimidationDialog;
+    private EditText interference;
+    private InterferenceDialogCheckbox interferenceDialog;
+    private EditText actionAgainstSurvivors;
+    private DialogCheckbox actionAgainstSurvivorsDialog;
+    private EditText actionAgainstNGO;
+    private DialogCheckbox actionAgainstNGODialog;
 
     public FormActorDetailsFragment() {
     }
@@ -35,16 +50,37 @@ public class FormActorDetailsFragment extends Fragment {
         setHasOptionsMenu(true);
         mListener.setupFormActorToolbar();
         initViews(v);
-        setupShipActors();
+        setupDialogs();
         return v;
+    }
+
+    private void setupDialogs() {
+        shipActorDialog = new ShipActorDialog(shipActors, context);
+        assetDialogCheckbox = new AssetDialogCheckbox(assetActors, getString(R.string.byassetActors), R.array.assetActors, this.context);
+        intimidationDialog = new DialogCheckbox(intimidation, getString(R.string.intimidation), R.array.intimidation, this.context);
+        interferenceDialog = new InterferenceDialogCheckbox(interference, getString(R.string.direct_interference_with_rescue), this.context);
+        actionAgainstSurvivorsDialog = new DialogCheckbox(actionAgainstSurvivors, getString(R.string.action_against_survivors), R.array.actionSurvivors, this.context);
+        actionAgainstNGODialog = new DialogCheckbox(actionAgainstNGO, getString(R.string.action_against_ngo_s), R.array.actionNGO, this.context);
     }
 
     private void initViews(View v) {
         shipActors = v.findViewById(R.id.edit_shipActors);
+        assetActors = v.findViewById(R.id.edit_assetActors);
+        intimidation = v.findViewById(R.id.edit_intimidation);
+        interference = v.findViewById(R.id.edit_interference);
+        actionAgainstSurvivors = v.findViewById(R.id.edit_actionAgainstSurvivors);
+        actionAgainstNGO = v.findViewById(R.id.edit_actionAgainstNGO);
     }
 
-    private void setupShipActors() {
-        shipActorDialog = new ShipActorDialog(shipActors, context);
+    public void saveToReport() {
+        Report report = ((AddFormActivity)context).report;
+        report.setShipActors(shipActorDialog.getResults());
+        report.setAssetActors(assetDialogCheckbox.getResults());
+        report.setIntimidation(intimidationDialog.getResults());
+        report.setInterference(interferenceDialog.getResults());
+        report.setActionAgainstSurvivors(actionAgainstSurvivorsDialog.getResults());
+        report.setActionAgainstNGO(actionAgainstNGODialog.getResults());
+        ((AddFormActivity)context).updateReport();
     }
 
     @Override
