@@ -4,17 +4,21 @@ import android.content.Context;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import re.out.sarobmed.sarobmed.R;
 
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.ACTOR;
+import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.FATALITIES;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.INCIDENT;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.LOCATION;
 import static re.out.sarobmed.sarobmed.Activities.AddFormActivity.REPORTER;
@@ -50,10 +54,20 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.addformtoolbar, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case android.R.id.home:
                 ((AppCompatActivity)context).onBackPressed();
+                return true;
+            case R.id.menu_addform_save:
+                Toast.makeText(context, "Report added", Toast.LENGTH_SHORT).show();
+                ((AppCompatActivity)context).finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -110,7 +124,7 @@ public class FormPickerFragment extends Fragment implements View.OnClickListener
                 mListener.openFragment(ACTOR);
                 break;
             case R.id.card_fatalities_details:
-                Toast.makeText(context, "Implementation coming soon", Toast.LENGTH_SHORT).show();
+                mListener.openFragment(FATALITIES);
         }
     }
 

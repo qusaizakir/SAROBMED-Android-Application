@@ -86,4 +86,9 @@
     <string name="direct_interference_with_rescue">Direct interference with rescue</string>
     <string name="action_against_survivors">Action against survivors</string>
     <string name="action_against_ngo_s">Post-Mission Action against NGO(s)</string>
+    <string name="totConfirmDead_hint">Total number of confirmed deaths</string>
+    <string name="totEstimateDeadMissing_hint">Estimated number of dead / missing persons</string>
+    <string name="deadPrior_hint">Fatalities prior to SAR</string>
+    <string name="deadDuring_hint">Fatalities during SAR</string>
+    <string name="deadAfter_hint">Fatalities post SAR</string>
 </resources>

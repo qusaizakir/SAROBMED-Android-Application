@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import re.out.sarobmed.sarobmed.Adapters.ReportAdapter;
+import re.out.sarobmed.sarobmed.Adapters.ReportEditableAdapter;
 import re.out.sarobmed.sarobmed.Models.ReportMinimal;
 import re.out.sarobmed.sarobmed.R;
 import re.out.sarobmed.sarobmed.ViewModels.MainViewModel;
@@ -26,7 +27,7 @@ public class IncompleteReportsFragment extends Fragment {
     private Context context;
     private IncompleteReportsFragmentCallbackInterface mListener;
     private RecyclerView recyclerView;
-    private ReportAdapter reportAdapter;
+    private ReportEditableAdapter reportAdapter;
     private List<ReportMinimal> reportMinimalList;
     private MainViewModel model;
 
@@ -59,7 +60,7 @@ public class IncompleteReportsFragment extends Fragment {
     }
 
     private void setupRecyclerview() {
-        reportAdapter = new ReportAdapter(reportMinimalList, context);
+        reportAdapter = new ReportEditableAdapter(reportMinimalList, context);
         reportAdapter.setHasStableIds(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));

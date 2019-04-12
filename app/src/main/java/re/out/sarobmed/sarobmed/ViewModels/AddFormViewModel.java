@@ -24,4 +24,8 @@ public class AddFormViewModel extends AndroidViewModel {
         reportRepository.updateReport(report);
     }
 
+    public void deleteReport(Report report){
+        reportRepository.deleteReport(report);
+    }
+
 }

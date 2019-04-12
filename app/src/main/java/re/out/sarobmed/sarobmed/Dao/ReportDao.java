@@ -4,6 +4,7 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -25,6 +26,9 @@ public interface ReportDao {
 
     @Update
     void updateReport(Report report);
+
+    @Delete
+    void deleteReport(Report report);
 
     //For each part of the report, get each part separately
 

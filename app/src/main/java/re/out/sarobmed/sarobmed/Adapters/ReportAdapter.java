@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import re.out.sarobmed.sarobmed.Models.ReportMinimal;
 import re.out.sarobmed.sarobmed.R;
@@ -25,12 +27,14 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
         TextView title;
         TextView date;
         TextView location;
+        ConstraintLayout layout;
 
         public ViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.rc_report_title);
             date = view.findViewById(R.id.rc_report_date);
             location = view.findViewById(R.id.rc_report_location);
+            layout = view.findViewById(R.id.rc_report_layout);
         }
     }
 

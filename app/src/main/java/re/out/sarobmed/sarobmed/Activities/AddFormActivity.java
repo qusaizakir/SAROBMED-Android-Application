@@ -1,15 +1,25 @@
 package re.out.sarobmed.sarobmed.Activities;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import re.out.sarobmed.sarobmed.Fragments.FormActorDetailsFragment;
+import re.out.sarobmed.sarobmed.Fragments.FormFatalitiesDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormIncidentDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormLocationDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormPickerFragment;
@@ -21,7 +31,7 @@ import re.out.sarobmed.sarobmed.ViewModels.AddFormViewModel;
 public class AddFormActivity extends AppCompatActivity implements
         FormPickerFragment.FormPickerFragmentListener, FormReporterDetailsFragment.FormReporterDetailsListener,
         FormIncidentDetailsFragment.FormIncidentDetailsListener, FormLocationDetailsFragment.FormLocationDetailsListener,
-        FormActorDetailsFragment.FormActorDetailsListener {
+        FormActorDetailsFragment.FormActorDetailsListener, FormFatalitiesDetailsFragment.FormFatalitiesDetailsListener {
 
     //Final Static Variables to identify Fragments
     public final static int PICKER = 2;
@@ -29,6 +39,7 @@ public class AddFormActivity extends AppCompatActivity implements
     public final static int LOCATION = 1;
     public final static int INCIDENT = 3;
     public final static int ACTOR = 4;
+    public final static int FATALITIES = 5;
     public Report report = new Report();
 
     //Variable for fragment management
@@ -38,12 +49,14 @@ public class AddFormActivity extends AppCompatActivity implements
     final FormIncidentDetailsFragment formIncidentDetailsFragment = new FormIncidentDetailsFragment();
     final FormLocationDetailsFragment formLocationDetailsFragment = new FormLocationDetailsFragment();
     final FormActorDetailsFragment formActorDetailsFragment = new FormActorDetailsFragment();
+    final FormFatalitiesDetailsFragment formFatalitiesDetailsFragment = new FormFatalitiesDetailsFragment();
 
     //Variables for views
     AppBarLayout appBarLayout;
     Toolbar toolbar;
     AddFormViewModel model;
 
+    private boolean exit = false;
 
 
     @Override
@@ -67,21 +80,67 @@ public class AddFormActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
-        if(formReporterDetailsFragment.isVisible()){
+        if(formPickerFragment.isVisible()){
+            if(exit){
+                finish();
+            }else {
+                exitConfirmDialog();
+            }
+        }else if(formReporterDetailsFragment.isVisible()){
             formReporterDetailsFragment.saveToReport();
-        }
-        if(formIncidentDetailsFragment.isVisible()){
+            super.onBackPressed();
+        }else if(formIncidentDetailsFragment.isVisible()){
             formIncidentDetailsFragment.saveToReport();
-        }
-        if(formLocationDetailsFragment.isVisible()){
+            super.onBackPressed();
+        }else if(formLocationDetailsFragment.isVisible()){
             formLocationDetailsFragment.saveToReport();
-        }
-        if(formActorDetailsFragment.isVisible()){
+            super.onBackPressed();
+        }else if(formActorDetailsFragment.isVisible()){
             formActorDetailsFragment.saveToReport();
+            super.onBackPressed();
+        }else if(formFatalitiesDetailsFragment.isVisible()){
+            formFatalitiesDetailsFragment.saveToReport();
+            super.onBackPressed();
         }
 
-        //TODO ADD the rest of fragements here as well
-        super.onBackPressed();
+    }
+
+    private void exitConfirmDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle("Confirm Exit");
+        dialogBuilder.setMessage("Do you want to save this report?");
+
+        //Add buttons
+        dialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                exit = true;
+                onBackPressed();
+            }
+        });
+
+        dialogBuilder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                model.deleteReport(report);
+                Toast.makeText(AddFormActivity.this, "Report deleted", Toast.LENGTH_SHORT).show();
+                exit = true;
+                onBackPressed();
+            }
+        });
+
+        dialogBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
     }
 
     private void initViews() {
@@ -115,6 +174,8 @@ public class AddFormActivity extends AppCompatActivity implements
             case ACTOR:
                 fm.beginTransaction().replace(R.id.addform_container, formActorDetailsFragment).addToBackStack(null).commit();
                 break;
+            case FATALITIES:
+                fm.beginTransaction().replace(R.id.addform_container, formFatalitiesDetailsFragment).addToBackStack(null).commit();
         }
 
     }
@@ -163,6 +224,16 @@ public class AddFormActivity extends AppCompatActivity implements
     public void setupFormActorToolbar() {
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(getString(R.string.actor_details));
+            toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public void setupFormFatalitiesToolbar() {
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(getString(R.string.fatalities_details));
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
