@@ -7,6 +7,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.Models.ReportMinimal;
 import re.out.sarobmed.sarobmed.Repositories.ReportRepository;
 
@@ -32,5 +33,9 @@ public class MainViewModel extends AndroidViewModel {
     //Get unsynced ReportsMinimal
     public LiveData<List<ReportMinimal>> getAllUnsyncedReportMinimal(){
         return reportRepository.getAllUnsyncedReportMinimal();
+    }
+
+    public void deleteReportByID (Long ID){
+        reportRepository.deleteReportByID(ID);
     }
 }

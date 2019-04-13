@@ -91,4 +91,5 @@
     <string name="deadPrior_hint">Fatalities prior to SAR</string>
     <string name="deadDuring_hint">Fatalities during SAR</string>
     <string name="deadAfter_hint">Fatalities post SAR</string>
+    <string name="edit_sar_title">Edit Search And Rescue Form</string>
 </resources>

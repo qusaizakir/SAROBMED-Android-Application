@@ -1,6 +1,7 @@
 package re.out.sarobmed.sarobmed.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,9 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
+import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.Activities.EditFormActivity;
+import re.out.sarobmed.sarobmed.Activities.MainActivity;
 import re.out.sarobmed.sarobmed.Models.ReportMinimal;
 import re.out.sarobmed.sarobmed.R;
 
@@ -18,7 +22,8 @@ public class ReportEditableAdapter extends ReportAdapter {
 
     private Context context;
     private boolean multiSelect = false;
-    private ArrayList<Integer> selectedItems = new ArrayList<>();
+    private ArrayList<Long> selectedItems = new ArrayList<>();
+    private DeleteReportInterface deleteReportInterface;
 
     ActionMode actionMode;
     ActionMode.Callback actionModeCallbacks = new ActionMode.Callback() {
@@ -41,7 +46,7 @@ public class ReportEditableAdapter extends ReportAdapter {
             switch(item.getItemId()){
 
                 case R.id.actionmode_delete:
-                    //TODO add interface to delete reports selected
+                    deleteReportInterface.deleteReports(selectedItems);
                     break;
             }
             mode.finish();
@@ -56,13 +61,21 @@ public class ReportEditableAdapter extends ReportAdapter {
         }
     };
 
-    public ReportEditableAdapter(List<ReportMinimal> reportMinimalList, Context context) {
+    public ReportEditableAdapter(List<ReportMinimal> reportMinimalList, Context context, DeleteReportInterface deleteReportInterface) {
         super(reportMinimalList, context);
         this.context = context;
+        this.deleteReportInterface = deleteReportInterface;
 
     }
 
-    void selectItem(Integer item, View layout) {
+    public void finishActionMode(){
+        if(actionMode != null){
+            actionMode.finish();
+        }
+
+    }
+
+    void selectItem(Long item, View layout) {
         if (multiSelect) {
             if (selectedItems.contains(item)) {
                 selectedItems.remove(item);
@@ -87,12 +100,14 @@ public class ReportEditableAdapter extends ReportAdapter {
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int ID = (int) getItemId(position);
+                Long ID = getItemId(position);
                 if(multiSelect){
                     selectItem(ID, holder.layout);
                 }else{
                     Toast.makeText(context, "This is a single click!", Toast.LENGTH_SHORT).show();
-                    //TODO EDIT page onlclick action
+                    Intent i = new Intent(context, EditFormActivity.class);
+                    i.putExtra("UID", ID);
+                    context.startActivity(i);
                 }
             }
         });
@@ -101,7 +116,7 @@ public class ReportEditableAdapter extends ReportAdapter {
             @Override
             public boolean onLongClick(View v) {
                 ((AppCompatActivity) v.getContext()).startSupportActionMode(actionModeCallbacks);
-                selectItem((int)getItemId(position), holder.layout);
+                selectItem(getItemId(position), holder.layout);
                 return true;
             }
         });

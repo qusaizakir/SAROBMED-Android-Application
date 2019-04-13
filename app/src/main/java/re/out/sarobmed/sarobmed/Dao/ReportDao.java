@@ -30,12 +30,18 @@ public interface ReportDao {
     @Delete
     void deleteReport(Report report);
 
+    @Query("DELETE FROM Report WHERE UID = :ID")
+    void deleteReportByID(Long ID);
+
+    @Query("SELECT * FROM Report WHERE UID = :ID")
+    LiveData<Report> getReportByID(Long ID);
+
     //For each part of the report, get each part separately
 
     //Get only ReporterDetails from the report, for a specific report.
     @Query("SELECT UID, reporter, organisation, reporter_complete " +
             "FROM Report WHERE UID = :ID")
-    LiveData<ReporterDetails> getReporterDetailsByID(int ID);
+    LiveData<ReporterDetails> getReporterDetailsByID(Long ID);
 
     //Get only IncidentDetails from the report, for a specific report.
     @Query("SELECT UID, shortTitle, dateOfMission, timeOfFirstInfoGet, startTimeOfFirstSighting," +
@@ -45,23 +51,23 @@ public interface ReportDao {
             " mediaOfCommunication, meansOfBoatDetection, coordOnScene, coordOverall," +
             " coordOrdersToSARVessel, supportingEvidence, incident_complete  " +
             "FROM Report WHERE UID = :ID")
-    LiveData<IncidentDetails> getIncidentDetailsByID(int ID);
+    LiveData<IncidentDetails> getIncidentDetailsByID(Long ID);
 
     //Get only LocationDetails from the report, for a specific report.
     @Query("SELECT UID, posOfVesselLong, posOfVesselLat, locationDescription, " +
             "approxDistanceFromCoastline, assumedPointOfDeparture, location_complete" +
             " FROM Report WHERE UID = :ID")
-    LiveData<LocationDetails> getLocationDetailsByID(int ID);
+    LiveData<LocationDetails> getLocationDetailsByID(Long ID);
 
     //Get only ActorDetails from the report, for a specific report.
     @Query("SELECT UID, shipActors, assetActors, intimidation, interference," +
             " actionAgainstSurvivors, actionAgainstNGO, actor_complete FROM Report WHERE UID = :ID")
-    LiveData<ActorDetails> getActorDetailsByID(int ID);
+    LiveData<ActorDetails> getActorDetailsByID(Long ID);
 
     //Get only FatalitiesDetails from the report, for a specific report.
     @Query("SELECT UID, totConfirmDead, totEstimateDeadMissing, deadPrior, deadDuring, deadAfter," +
             " fatalities_complete FROM Report WHERE UID = :ID")
-    LiveData<FatalitiesDetails> getFatalitiesDetailsByID(int ID);
+    LiveData<FatalitiesDetails> getFatalitiesDetailsByID(Long ID);
 
     //For the main page, get status of reports (Synced, Unsynced or incomplete)
 

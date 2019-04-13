@@ -105,4 +105,8 @@ public class ShipActorDialog implements View.OnClickListener {
     public ArrayList<ShipActor> getResults() {
         return results;
     }
+
+    public void setResults(ArrayList<ShipActor> results) {
+        this.results = results;
+    }
 }

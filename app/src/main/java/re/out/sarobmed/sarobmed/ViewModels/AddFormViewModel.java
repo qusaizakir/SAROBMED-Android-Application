@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.Repositories.ReportRepository;
 
@@ -26,6 +27,10 @@ public class AddFormViewModel extends AndroidViewModel {
 
     public void deleteReport(Report report){
         reportRepository.deleteReport(report);
+    }
+
+    public LiveData<Report> getReportByID(Long ID){
+        return reportRepository.getReportByID(ID);
     }
 
 }

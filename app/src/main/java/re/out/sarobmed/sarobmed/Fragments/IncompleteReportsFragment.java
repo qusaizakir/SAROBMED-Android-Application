@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import re.out.sarobmed.sarobmed.Adapters.DeleteReportInterface;
 import re.out.sarobmed.sarobmed.Adapters.ReportAdapter;
 import re.out.sarobmed.sarobmed.Adapters.ReportEditableAdapter;
 import re.out.sarobmed.sarobmed.Models.ReportMinimal;
@@ -22,7 +23,7 @@ import re.out.sarobmed.sarobmed.R;
 import re.out.sarobmed.sarobmed.ViewModels.MainViewModel;
 
 
-public class IncompleteReportsFragment extends Fragment {
+public class IncompleteReportsFragment extends Fragment implements DeleteReportInterface {
 
     private Context context;
     private IncompleteReportsFragmentCallbackInterface mListener;
@@ -60,7 +61,7 @@ public class IncompleteReportsFragment extends Fragment {
     }
 
     private void setupRecyclerview() {
-        reportAdapter = new ReportEditableAdapter(reportMinimalList, context);
+        reportAdapter = new ReportEditableAdapter(reportMinimalList, context, this);
         reportAdapter.setHasStableIds(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -93,6 +94,14 @@ public class IncompleteReportsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        reportAdapter.finishActionMode();
+    }
+
+    @Override
+    public void deleteReports(ArrayList<Long> IDs) {
+        for(Long i: IDs){
+            model.deleteReportByID(i);
+        }
     }
 
     public interface IncompleteReportsFragmentCallbackInterface {

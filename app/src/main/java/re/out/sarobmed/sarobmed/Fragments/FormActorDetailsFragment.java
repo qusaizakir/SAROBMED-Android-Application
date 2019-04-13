@@ -22,18 +22,18 @@ public class FormActorDetailsFragment extends Fragment {
     private Context context;
     private FormActorDetailsListener mListener;
 
-    private EditText shipActors;
-    private ShipActorDialog shipActorDialog;
-    private EditText assetActors;
-    private AssetDialogCheckbox assetDialogCheckbox;
-    private EditText intimidation;
-    private DialogCheckbox intimidationDialog;
-    private EditText interference;
-    private InterferenceDialogCheckbox interferenceDialog;
-    private EditText actionAgainstSurvivors;
-    private DialogCheckbox actionAgainstSurvivorsDialog;
-    private EditText actionAgainstNGO;
-    private DialogCheckbox actionAgainstNGODialog;
+    protected EditText shipActors;
+    protected ShipActorDialog shipActorDialog;
+    protected EditText assetActors;
+    protected AssetDialogCheckbox assetDialogCheckbox;
+    protected EditText intimidation;
+    protected DialogCheckbox intimidationDialog;
+    protected EditText interference;
+    protected InterferenceDialogCheckbox interferenceDialog;
+    protected EditText actionAgainstSurvivors;
+    protected DialogCheckbox actionAgainstSurvivorsDialog;
+    protected EditText actionAgainstNGO;
+    protected DialogCheckbox actionAgainstNGODialog;
 
     public FormActorDetailsFragment() {
     }

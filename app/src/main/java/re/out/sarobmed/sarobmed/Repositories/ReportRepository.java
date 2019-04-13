@@ -25,28 +25,32 @@ public class ReportRepository {
         reportDao = db.reportDao();
     }
 
+    public LiveData<Report> getReportByID(Long ID){
+        return reportDao.getReportByID(ID);
+    }
+
     //ReporterDetails
-    public LiveData<ReporterDetails> getReporterDetailsByID(int id){
+    public LiveData<ReporterDetails> getReporterDetailsByID(Long id){
         return reportDao.getReporterDetailsByID(id);
     }
 
     //IncidentDetails
-    public LiveData<IncidentDetails> getIncidentDetailsByID(int id){
+    public LiveData<IncidentDetails> getIncidentDetailsByID(Long id){
         return reportDao.getIncidentDetailsByID(id);
     }
 
     //LocationDetails
-    public LiveData<LocationDetails> getLocationDetailsByID(int id){
+    public LiveData<LocationDetails> getLocationDetailsByID(Long id){
         return reportDao.getLocationDetailsByID(id);
     }
 
     //ActorsDetails
-    public LiveData<ActorDetails> getActorDetailsByID(int id){
+    public LiveData<ActorDetails> getActorDetailsByID(Long id){
         return reportDao.getActorDetailsByID(id);
     }
 
     //FatalitiesDetails
-    public LiveData<FatalitiesDetails> getFatalitiesDetailsByID(int id){
+    public LiveData<FatalitiesDetails> getFatalitiesDetailsByID(Long id){
         return reportDao.getFatalitiesDetailsByID(id);
     }
 
@@ -115,6 +119,25 @@ public class ReportRepository {
         @Override
         protected Void doInBackground(final Report... params) {
             mAsyncTaskDao.deleteReport(params[0]);
+            return null;
+        }
+    }
+
+    //AsyncTask to delete Report
+    public void deleteReportByID(Long ID) {
+        new deleteReportByID(reportDao).execute(ID);
+    }
+    private static class deleteReportByID extends AsyncTask<Long, Void, Void> {
+
+        private ReportDao mAsyncTaskDao;
+
+        deleteReportByID(ReportDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Long... params) {
+            mAsyncTaskDao.deleteReportByID(params[0]);
             return null;
         }
     }
