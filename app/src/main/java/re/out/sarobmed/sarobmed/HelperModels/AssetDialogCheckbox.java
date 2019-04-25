@@ -65,6 +65,19 @@ public class AssetDialogCheckbox implements View.OnClickListener{
         createDialog();
     }
 
+    public AssetDialogCheckbox(EditText editText, String title, int arrayID, Context context, ArrayList<AssetActor> results){
+        this.editText = editText;
+        this.context = context;
+        this.editText.setOnClickListener(this);
+        this.array = context.getResources().getStringArray(arrayID);
+        this.dialogBuilder = new AlertDialog.Builder(context);
+        this.checkboxes = new ArrayList<>();
+        this.results = results;
+        this.title = title;
+        fillCheckboxes();
+        createDialog();
+    }
+
     private void fillCheckboxes() {
         for(String anArray : array) {
             CheckBox cb = new CheckBox(context.getApplicationContext());
@@ -79,6 +92,11 @@ public class AssetDialogCheckbox implements View.OnClickListener{
         dialogBuilder.setView(dialogView);
         dialogBuilder.setTitle(title);
 
+        initView(dialogView);
+        handleOtherCheckBox();
+
+        fillList();
+
         //Add buttons
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             @Override
@@ -89,9 +107,6 @@ public class AssetDialogCheckbox implements View.OnClickListener{
             }
         });
 
-        initView(dialogView);
-        handleOtherCheckBox();
-
         //Dynamically add checkboxes for all items in the array
         LinearLayout ll = dialogView.findViewById(R.id.dialog_linearLayout);
         for(CheckBox cb: checkboxes){
@@ -99,6 +114,32 @@ public class AssetDialogCheckbox implements View.OnClickListener{
         }
 
         alertDialog = dialogBuilder.create();
+
+    }
+
+    private void fillList(){
+
+        for(int i=0; i<checkboxes.size(); i++){
+            for(int j=0; j<results.size(); j++){
+                if(checkboxes.get(i).getText().toString().equals(results.get(j).getInstitution())){
+                    checkboxes.get(i).setChecked(true);
+                }else if(results.get(j).getInstitution().equals("Other")){
+                    other.setText(results.get(j).getAddInfo());
+                    otherBox.setChecked(true);
+                }
+            }
+        }
+
+        for(int i=0; i<assetBoxes.size(); i++){
+            for(int j = 0; j < results.size(); j++){
+                if(assetBoxes.get(i).getText().toString().isEmpty()){
+                    if(assetBoxes.get(i).getTag().toString().equals(results.get(j).getInstitution())){
+                        assetBoxes.get(i).setChecked(true);
+                        assetEdit.get(i).setText(results.get(j).getAddInfo());
+                    }
+                }
+            }
+        }
 
     }
 
@@ -127,6 +168,16 @@ public class AssetDialogCheckbox implements View.OnClickListener{
         cargoShipEdit = v.findViewById(R.id.edit_cargoShip);
 
         assetBoxes = new ArrayList<>();
+        euWarshipBox.setTag(R.string.euwarship);
+        euAircraftBox.setTag(R.string.euairship);
+        eunaVesselBox.setTag(R.string.eunoAircraft);
+        eunoAircraftBox.setTag(R.string.eunoAircraft);
+        frontexVesselBox.setTag(R.string.frontexVessel);
+        frontexAircraftBox.setTag(R.string.frontexAircraft);
+        natoVesselBox.setTag(R.string.natoVessel);
+        natoAircraftBox.setTag(R.string.natoAircraft);
+        otherNGOBox.setTag(R.string.otherNGO);
+        cargoShipBox.setTag(R.string.cargoShipAsset);
         assetBoxes.add(euWarshipBox);
         assetBoxes.add(euAircraftBox);
         assetBoxes.add(eunaVesselBox);
@@ -176,7 +227,7 @@ public class AssetDialogCheckbox implements View.OnClickListener{
 
         for(int i=0; i<assetBoxes.size(); i++){
             if(assetBoxes.get(i).isChecked()){
-                results.add(new AssetActor(assetBoxes.get(i).getText().toString(), assetEdit.get(i).getText().toString()));
+                results.add(new AssetActor(assetBoxes.get(i).getTag().toString(), assetEdit.get(i).getText().toString()));
             }
         }
     }
@@ -217,6 +268,5 @@ public class AssetDialogCheckbox implements View.OnClickListener{
     public ArrayList<AssetActor> getResults(){
         return results;
     }
-
 
 }

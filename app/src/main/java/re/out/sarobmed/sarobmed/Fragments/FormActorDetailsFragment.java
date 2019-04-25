@@ -54,7 +54,7 @@ public class FormActorDetailsFragment extends Fragment {
         return v;
     }
 
-    private void setupDialogs() {
+    protected void setupDialogs() {
         shipActorDialog = new ShipActorDialog(shipActors, context);
         assetDialogCheckbox = new AssetDialogCheckbox(assetActors, getString(R.string.byassetActors), R.array.assetActors, this.context);
         intimidationDialog = new DialogCheckbox(intimidation, getString(R.string.intimidation), R.array.intimidation, this.context);

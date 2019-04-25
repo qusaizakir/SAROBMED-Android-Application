@@ -2,6 +2,7 @@ package re.out.sarobmed.sarobmed.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -106,6 +107,7 @@ public class ReportEditableAdapter extends ReportAdapter {
                 }else{
                     Toast.makeText(context, "This is a single click!", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, EditFormActivity.class);
+                    Log.d("ID OF REPORT", ID + "");
                     i.putExtra("UID", ID);
                     context.startActivity(i);
                 }

@@ -44,6 +44,15 @@ public class ShipActorDialog implements View.OnClickListener {
         createDialog();
     }
 
+    public ShipActorDialog(EditText editText, Context context, ArrayList<ShipActor> results){
+        this.shipActorEditText = editText;
+        this.context = context;
+        this.results = results;
+        this.dialogBuilder = new AlertDialog.Builder(context);
+        this.shipActorEditText.setOnClickListener(this);
+        createDialog();
+    }
+
     private void createDialog() {
         LayoutInflater inflater = ((AppCompatActivity)context).getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_shipactor, null);
@@ -104,9 +113,5 @@ public class ShipActorDialog implements View.OnClickListener {
 
     public ArrayList<ShipActor> getResults() {
         return results;
-    }
-
-    public void setResults(ArrayList<ShipActor> results) {
-        this.results = results;
     }
 }

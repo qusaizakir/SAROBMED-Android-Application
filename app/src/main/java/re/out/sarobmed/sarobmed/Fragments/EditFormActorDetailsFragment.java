@@ -49,8 +49,10 @@ public class EditFormActorDetailsFragment extends FormActorDetailsFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fillReport();
+        super.onCreateView(inflater, container, savedInstanceState);
+        //fillReport();
         return super.onCreateView(inflater, container, savedInstanceState);
+
     }
 
     @Override
@@ -59,8 +61,25 @@ public class EditFormActorDetailsFragment extends FormActorDetailsFragment {
         super.onAttach(context);
     }
 
-    private void fillReport() {
-        super.shipActorDialog.setResults(report.getShipActors());
+    @Override
+    protected void setupDialogs(){
+        super.shipActorDialog = new ShipActorDialog(super.shipActors, context, report.getShipActors());
+        super.assetDialogCheckbox = new AssetDialogCheckbox(super.assetActors, getString(R.string.byassetActors), R.array.assetActors, this.context, report.getAssetActors());
+        super.intimidationDialog = new DialogCheckbox(super.intimidation, getString(R.string.intimidation), R.array.intimidation, this.context, report.getIntimidation());
+        super.interferenceDialog = new InterferenceDialogCheckbox(super.interference, getString(R.string.direct_interference_with_rescue), this.context, report.getInterference());
+        super.actionAgainstSurvivorsDialog = new DialogCheckbox(super.actionAgainstSurvivors, getString(R.string.action_against_survivors), R.array.actionSurvivors, this.context, report.getActionAgainstSurvivors());
+        super.actionAgainstNGODialog = new DialogCheckbox(super.actionAgainstNGO, getString(R.string.action_against_ngo_s), R.array.actionNGO, this.context, report.getActionAgainstNGO());
     }
 
+    @Override
+    public void saveToReport(){
+        Report report = ((EditFormActivity)context).reportToEdit;
+        report.setShipActors(super.shipActorDialog.getResults());
+        report.setAssetActors(super.assetDialogCheckbox.getResults());
+        report.setIntimidation(super.intimidationDialog.getResults());
+        report.setInterference(super.interferenceDialog.getResults());
+        report.setActionAgainstSurvivors(super.actionAgainstSurvivorsDialog.getResults());
+        report.setActionAgainstNGO(super.actionAgainstNGODialog.getResults());
+        ((EditFormActivity)context).updateReport();
+    }
 }

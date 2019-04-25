@@ -56,11 +56,27 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
         createDialog();
     }
 
+    public InterferenceDialogCheckbox(EditText editText, String title, Context context, ArrayList<InterferenceOptions> results){
+        this.editText = editText;
+        this.context = context;
+        this.editText.setOnClickListener(this);
+        this.dialogBuilder = new AlertDialog.Builder(context);
+        this.checkboxes = new ArrayList<>();
+        this.results = results;
+        this.title = title;
+        createDialog();
+    }
+
     private void createDialog(){
         LayoutInflater inflater = ((AppCompatActivity)context).getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.interference_dialog_checkbox, null);
         dialogBuilder.setView(dialogView);
         dialogBuilder.setTitle(title);
+
+        initView(dialogView);
+        handleOtherCheckBox();
+
+        fillList();
 
         //Add buttons
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
@@ -72,10 +88,31 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
             }
         });
 
-        initView(dialogView);
-        handleOtherCheckBox();
+
 
         alertDialog = dialogBuilder.create();
+
+    }
+
+    private void fillList(){
+
+        for(int j=0; j<results.size(); j++){
+            if(results.get(j).getInterference().equals("Other")){
+                other.setText(results.get(j).getActor());
+                otherBox.setChecked(true);
+            }
+        }
+
+        for(int i=0; i<interBoxes.size(); i++){
+            for(int j = 0; j < results.size(); j++){
+                if(interBoxes.get(i).getText().toString().isEmpty()){
+                    if(interBoxes.get(i).getTag().toString().equals(results.get(j).getInterference())){
+                        interBoxes.get(i).setChecked(true);
+                        interEdit.get(i).setText(results.get(j).getActor());
+                    }
+                }
+            }
+        }
 
     }
 
@@ -98,6 +135,13 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
         standdownnoneuEdit = v.findViewById(R.id.edit_standdownnoneu);
 
         interBoxes = new ArrayList<>();
+        noneuBoardingBox.setTag(R.string.noneuBoarding);
+        blockEUBox.setTag(R.string.blockEu);
+        blockNoneuBox.setTag(R.string.blockNoneu);
+        stayawayEuBox.setTag(R.string.stayawayEu);
+        stayawayNoneuBox.setTag(R.string.stayawayNoneu);
+        standdownEUBox.setTag(R.string.standdownEU);
+        standdownnoneuuBox.setTag(R.string.stayawayNoneu);
         interBoxes.add(noneuBoardingBox);
         interBoxes.add(blockEUBox);
         interBoxes.add(blockNoneuBox);
@@ -136,7 +180,7 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
 
         for(int i = 0; i< interBoxes.size(); i++){
             if(interBoxes.get(i).isChecked()){
-                results.add(new InterferenceOptions(interBoxes.get(i).getText().toString(), interEdit.get(i).getText().toString()));
+                results.add(new InterferenceOptions(interBoxes.get(i).getTag().toString(), interEdit.get(i).getText().toString()));
             }
         }
     }
@@ -177,6 +221,4 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
     public ArrayList<InterferenceOptions> getResults(){
         return results;
     }
-
-
 }

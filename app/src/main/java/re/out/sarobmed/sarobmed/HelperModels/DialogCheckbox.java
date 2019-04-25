@@ -42,6 +42,19 @@ public class DialogCheckbox implements View.OnClickListener{
         createDialog();
     }
 
+    public DialogCheckbox(EditText editText, String title, int arrayID, Context context, ArrayList<String> results){
+        this.editText = editText;
+        this.context = context;
+        this.editText.setOnClickListener(this);
+        this.array = context.getResources().getStringArray(arrayID);
+        this.dialogBuilder = new AlertDialog.Builder(context);
+        this.checkboxes = new ArrayList<>();
+        this.results = results;
+        this.title = title;
+        fillCheckboxes();
+        createDialog();
+    }
+
     private void fillCheckboxes() {
         for(String anArray : array) {
             CheckBox cb = new CheckBox(context.getApplicationContext());
@@ -56,6 +69,12 @@ public class DialogCheckbox implements View.OnClickListener{
         dialogBuilder.setView(dialogView);
         dialogBuilder.setTitle(title);
 
+        other = dialogView.findViewById(R.id.edit_other);
+        otherBox = dialogView.findViewById(R.id.other_checkbox);
+        handleOtherCheckBox();
+
+        fillList();
+
         //Add buttons
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             @Override
@@ -65,11 +84,6 @@ public class DialogCheckbox implements View.OnClickListener{
                 changeEditText();
             }
         });
-
-
-        other = dialogView.findViewById(R.id.edit_other);
-        otherBox = dialogView.findViewById(R.id.other_checkbox);
-        handleOtherCheckBox();
 
         //Dynamically add checkboxes for all items in the array
         LinearLayout ll = dialogView.findViewById(R.id.dialog_linearLayout);
@@ -112,6 +126,22 @@ public class DialogCheckbox implements View.OnClickListener{
         }
     }
 
+    private void fillList(){
+
+        for(int i=0; i<checkboxes.size(); i++){
+            for(int j=0; j<results.size(); j++){
+                if(checkboxes.get(i).getText().toString().equals(results.get(j))){
+                    checkboxes.get(i).setChecked(true);
+                }else{
+                    if(j == results.size()-1){
+                        other.setText(results.get(j).toString());
+                        otherBox.setChecked(true);
+                    }
+                }
+            }
+        }
+    }
+
     private void handleOtherCheckBox(){
         other.setEnabled(false);
         otherBox.setChecked(false);
@@ -132,5 +162,7 @@ public class DialogCheckbox implements View.OnClickListener{
         return results;
     }
 
-
+    public void setResults(ArrayList<String> results){
+        this.results = results;
+    }
 }

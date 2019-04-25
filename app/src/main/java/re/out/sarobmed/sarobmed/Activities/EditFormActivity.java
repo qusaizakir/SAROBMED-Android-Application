@@ -65,7 +65,9 @@ public class EditFormActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_form);
-        UID = getIntent().getIntExtra("UID", -1);
+        UID = getIntent().getLongExtra("UID", -1);
+        Log.d("UID OF REPORT", UID + "");
+
 
         //Initialise all views
         initViews();
