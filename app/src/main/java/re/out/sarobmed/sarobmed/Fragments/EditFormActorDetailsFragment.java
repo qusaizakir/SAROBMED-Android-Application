@@ -21,20 +21,6 @@ import re.out.sarobmed.sarobmed.R;
 public class EditFormActorDetailsFragment extends FormActorDetailsFragment {
 
     private Context context;
-
-    private EditText shipActors;
-    private ShipActorDialog shipActorDialog;
-    private EditText assetActors;
-    private AssetDialogCheckbox assetDialogCheckbox;
-    private EditText intimidation;
-    private DialogCheckbox intimidationDialog;
-    private EditText interference;
-    private InterferenceDialogCheckbox interferenceDialog;
-    private EditText actionAgainstSurvivors;
-    private DialogCheckbox actionAgainstSurvivorsDialog;
-    private EditText actionAgainstNGO;
-    private DialogCheckbox actionAgainstNGODialog;
-
     private Report report;
 
     public EditFormActorDetailsFragment() {
@@ -50,7 +36,6 @@ public class EditFormActorDetailsFragment extends FormActorDetailsFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        //fillReport();
         return super.onCreateView(inflater, container, savedInstanceState);
 
     }

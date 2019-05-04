@@ -76,6 +76,7 @@ public class AssetDialogCheckbox implements View.OnClickListener{
         this.title = title;
         fillCheckboxes();
         createDialog();
+        changeEditText();
     }
 
     private void fillCheckboxes() {

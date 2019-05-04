@@ -1,57 +1,57 @@
 package re.out.sarobmed.sarobmed.Fragments;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import re.out.sarobmed.sarobmed.Activities.AddFormActivity;
+import re.out.sarobmed.sarobmed.Activities.EditFormActivity;
 import re.out.sarobmed.sarobmed.Models.Report;
 import re.out.sarobmed.sarobmed.R;
 
-public class FormFatalitiesDetailsFragment extends Fragment {
+public class EditFormFatalitiesDetailsFragment extends FormFatalitiesDetailsFragment{
 
-    private FormFatalitiesDetailsListener mListener;
-    protected Context context;
-    protected EditText totConfirmDead;
-    protected EditText totEstimateDeadMissing;
-    protected EditText deadPrior;
-    protected EditText deadDuring;
-    protected EditText deadAfter;
+    private Context context;
+    private Report report;
 
-    public FormFatalitiesDetailsFragment() {
-        // Required empty public constructor
+    public EditFormFatalitiesDetailsFragment(){
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        report = ((EditFormActivity)context).reportToEdit;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_form_fatalities_details, container, false);
-        setHasOptionsMenu(true);
-        mListener.setupFormFatalitiesToolbar();
-        initViews(v);
-        return v;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    protected void initViews(View v) {
-        totConfirmDead = v.findViewById(R.id.edit_totConfirmDead);
-        totEstimateDeadMissing = v.findViewById(R.id.edit_totEstimateDeadMissing);
-        deadPrior = v.findViewById(R.id.edit_deadPrior);
-        deadDuring = v.findViewById(R.id.edit_deadDuring);
-        deadAfter = v.findViewById(R.id.edit_deadAfter);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        fillReports();
     }
 
+    private void fillReports(){
+        super.totConfirmDead.setText(report.getTotConfirmDead() + "");
+        super.totEstimateDeadMissing.setText(report.getTotEstimateDeadMissing() + "");
+        super.deadPrior.setText(report.getDeadPrior()+ "");
+        super.deadDuring.setText(report.getDeadDuring()+ "");
+        super.deadAfter.setText(report.getDeadAfter()+ "");
+    }
+
+    @Override
     public void saveToReport(){
-        Report report = ((AddFormActivity)context).report;
-
         int totConfirmDeadInt =0;
         try{
             totConfirmDeadInt = Integer.parseInt(totConfirmDead.getText().toString());
@@ -93,28 +93,18 @@ public class FormFatalitiesDetailsFragment extends Fragment {
         report.setDeadDuring(deadDuringInt);
         report.setDeadAfter(deadAfterInt);
 
-        ((AddFormActivity)context).updateReport();
+        ((EditFormActivity)context).updateReport();
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context){
         super.onAttach(context);
         this.context = context;
-        if (context instanceof FormFatalitiesDetailsListener) {
-            mListener = (FormFatalitiesDetailsListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement FormFatalitiesDetailsListener");
-        }
     }
 
     @Override
-    public void onDetach() {
+    public void onDetach(){
         super.onDetach();
-        mListener = null;
     }
 
-    public interface FormFatalitiesDetailsListener {
-        void setupFormFatalitiesToolbar();
-    }
 }

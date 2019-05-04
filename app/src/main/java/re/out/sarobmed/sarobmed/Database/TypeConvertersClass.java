@@ -55,7 +55,7 @@ public class TypeConvertersClass {
 
     @TypeConverter
     public static ArrayList<InterferenceOptions> fromInterferenceOptionsString (String value) {
-        Type listType = new TypeToken<ArrayList<AssetActor>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<InterferenceOptions>>() {}.getType();
         return new Gson().fromJson(value, listType);
     }
 

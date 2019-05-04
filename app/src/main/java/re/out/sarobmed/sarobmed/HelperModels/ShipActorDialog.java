@@ -51,6 +51,7 @@ public class ShipActorDialog implements View.OnClickListener {
         this.dialogBuilder = new AlertDialog.Builder(context);
         this.shipActorEditText.setOnClickListener(this);
         createDialog();
+        changeEditText();
     }
 
     private void createDialog() {

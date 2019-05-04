@@ -65,6 +65,7 @@ public class InterferenceDialogCheckbox implements View.OnClickListener{
         this.results = results;
         this.title = title;
         createDialog();
+        changeEditText();
     }
 
     private void createDialog(){

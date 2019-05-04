@@ -1,25 +1,18 @@
 package re.out.sarobmed.sarobmed.Activities;
 
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import re.out.sarobmed.sarobmed.Fragments.EditFormActorDetailsFragment;
+import re.out.sarobmed.sarobmed.Fragments.EditFormFatalitiesDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormActorDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormFatalitiesDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormIncidentDetailsFragment;
@@ -51,7 +44,7 @@ public class EditFormActivity extends AppCompatActivity implements
     final FormIncidentDetailsFragment formIncidentDetailsFragment = new FormIncidentDetailsFragment();
     final FormLocationDetailsFragment formLocationDetailsFragment = new FormLocationDetailsFragment();
     final EditFormActorDetailsFragment editFormActorDetailsFragment = new EditFormActorDetailsFragment();
-    final FormFatalitiesDetailsFragment formFatalitiesDetailsFragment = new FormFatalitiesDetailsFragment();
+    final EditFormFatalitiesDetailsFragment editFormFatalitiesDetailsFragment = new EditFormFatalitiesDetailsFragment();
 
     //Variables for views
     AppBarLayout appBarLayout;
@@ -113,8 +106,8 @@ public class EditFormActivity extends AppCompatActivity implements
         }else if(editFormActorDetailsFragment.isVisible()){
             editFormActorDetailsFragment.saveToReport();
             super.onBackPressed();
-        }else if(formFatalitiesDetailsFragment.isVisible()){
-            formFatalitiesDetailsFragment.saveToReport();
+        }else if(editFormFatalitiesDetailsFragment.isVisible()){
+            editFormFatalitiesDetailsFragment.saveToReport();
             super.onBackPressed();
         }
 
@@ -152,7 +145,7 @@ public class EditFormActivity extends AppCompatActivity implements
                 fm.beginTransaction().replace(R.id.addform_container, editFormActorDetailsFragment).addToBackStack(null).commit();
                 break;
             case FATALITIES:
-                //fm.beginTransaction().replace(R.id.addform_container, formFatalitiesDetailsFragment).addToBackStack(null).commit();
+                fm.beginTransaction().replace(R.id.addform_container, editFormFatalitiesDetailsFragment).addToBackStack(null).commit();
         }
 
     }
