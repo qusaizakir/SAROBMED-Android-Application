@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import re.out.sarobmed.sarobmed.Fragments.EditFormActorDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.EditFormFatalitiesDetailsFragment;
+import re.out.sarobmed.sarobmed.Fragments.EditFormReporterDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormActorDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormFatalitiesDetailsFragment;
 import re.out.sarobmed.sarobmed.Fragments.FormIncidentDetailsFragment;
@@ -40,7 +41,7 @@ public class EditFormActivity extends AppCompatActivity implements
     //Variable for fragment management
     final FragmentManager fm = getSupportFragmentManager();
     final FormPickerFragment formPickerFragment = new FormPickerFragment();
-    final FormReporterDetailsFragment formReporterDetailsFragment = new FormReporterDetailsFragment();
+    final EditFormReporterDetailsFragment editFormReporterDetailsFragment = new EditFormReporterDetailsFragment();
     final FormIncidentDetailsFragment formIncidentDetailsFragment = new FormIncidentDetailsFragment();
     final FormLocationDetailsFragment formLocationDetailsFragment = new FormLocationDetailsFragment();
     final EditFormActorDetailsFragment editFormActorDetailsFragment = new EditFormActorDetailsFragment();
@@ -94,8 +95,8 @@ public class EditFormActivity extends AppCompatActivity implements
             }else {
                 //exitConfirmDialog();
             }
-        }else if(formReporterDetailsFragment.isVisible()){
-            formReporterDetailsFragment.saveToReport();
+        }else if(editFormReporterDetailsFragment.isVisible()){
+            editFormReporterDetailsFragment.saveToReport();
             super.onBackPressed();
         }else if(formIncidentDetailsFragment.isVisible()){
             formIncidentDetailsFragment.saveToReport();
@@ -133,7 +134,7 @@ public class EditFormActivity extends AppCompatActivity implements
 
         switch(fragment){
             case REPORTER:
-                //fm.beginTransaction().replace(R.id.addform_container, formReporterDetailsFragment).addToBackStack(null).commit();
+                fm.beginTransaction().replace(R.id.addform_container, editFormReporterDetailsFragment).addToBackStack(null).commit();
                 break;
             case LOCATION:
                 //fm.beginTransaction().replace(R.id.addform_container, formLocationDetailsFragment).addToBackStack(null).commit();

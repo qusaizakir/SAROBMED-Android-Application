@@ -22,8 +22,8 @@ public class FormReporterDetailsFragment extends Fragment {
     private Context context;
     private FormReporterDetailsListener mListener;
 
-    private EditText reporter;
-    private AutoCompleteTextView organisation;
+    protected EditText reporter;
+    protected AutoCompleteTextView organisation;
 
     public FormReporterDetailsFragment() {
     }

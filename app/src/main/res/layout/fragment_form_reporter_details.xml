@@ -28,12 +28,12 @@
 
         <AutoCompleteTextView
             android:id="@+id/edit_organisation"
+            style="@style/AddFormEditText"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:completionThreshold="0"
-            android:inputType="text"
             android:hint="@string/edit_organisation_hint"
-            style="@style/AddFormEditText"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
